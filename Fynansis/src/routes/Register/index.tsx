@@ -1,25 +1,24 @@
-import { useState } from 'react'
-import '../Home/styles.css'
-import { Link } from "react-router-dom"
-import { useUserDataMutate } from '../hooks/useUserDataMutate'
-import { UserData } from '../../interface/userData'
+import { useState } from "react";
+import "../Home/styles.css";
+import { Link } from "react-router-dom";
+import { useUserDataMutate } from "../hooks/useUserDataMutate";
+import { UserData } from "../../interface/userData";
 
 interface InputProps {
-  label: string,
-  value: string | number,
-  updateValue(value: any): void
+  label: string;
+  value: string | number;
+  updateValue(value: any): void;
 }
 
-const Input = ({ label, value, updateValue}: InputProps) => {
-  return (
-    <>   
-      <input value={value} onChange={e => updateValue(e.target.value)} placeholder={label}></input>
-    </>
-  )
-}
+const Input = ({ label, value, updateValue }: InputProps) => (
+  <input
+    value={value}
+    onChange={(e) => updateValue(e.target.value)}
+    placeholder={label}
+  />
+);
 
 export function Register() {
-
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [login, setLogin] = useState("");
@@ -33,27 +32,27 @@ export function Register() {
       email,
       login,
       senha,
-      cpf  
-    }
-    mutate(userData)
-  }
+      cpf,
+    };
+    mutate(userData);
+  };
 
   return (
-    <div className='container'>
-      
+    <div className="container">
       <h1>Cadastrar</h1>
-      
-        <Input label='Nome'  value={nome} updateValue={setNome}></Input>
-        <Input label='Email' value={email} updateValue={setEmail}></Input>
-        <Input label='Login' value={login} updateValue={setLogin}></Input>
-        <Input label='Senha' value={senha} updateValue={setSenha}></Input>
-        <Input label='Cpf'   value={cpf} updateValue={setCpf}></Input>
-     
-      <button type="button">
-        <Link to="/">Voltar</Link>
+
+      <Input label="Nome" value={nome} updateValue={setNome}/>
+      <Input label="Email" value={email} updateValue={setEmail}/>
+      <Input label="Login" value={login} updateValue={setLogin}/>
+      <Input label="Senha" value={senha} updateValue={setSenha}/>
+      <Input label="Cpf" value={cpf} updateValue={setCpf}/>
+
+      <Link to="/">
+        <button type="button">Voltar</button>
+      </Link>
+      <button type="button" onClick={submit}>
+        Cadastrar
       </button>
-      <button type="button" onClick={submit}>Cadastrar</button>
-      
     </div>
-  )
+  );
 }

@@ -7,13 +7,15 @@ export function Home() {
     <div className='container'>
       
       <h1>Login</h1>
-      <input type="text" placeholder="Login"></input>
-      <input type="password" placeholder="Senha"></input>
+      <input type="text" placeholder="Login"/>
+      <input type="password" placeholder="Senha"/>
       <button type="button">Entrar</button>
-      <button type="button">
-        <Link to="/register">Cadastrar</Link>
-      </button>
-      
+      <Link to="/register">
+        <button type="button">
+        Cadastrar
+        </button>
+      </Link>
+
     </div>
   )
 }
