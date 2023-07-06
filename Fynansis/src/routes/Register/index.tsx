@@ -3,20 +3,8 @@ import "../Home/styles.css";
 import { Link } from "react-router-dom";
 import { useUserDataMutate } from "../hooks/useUserDataMutate";
 import { UserData } from "../../interface/userData";
+import { Input } from "../../components/input";
 
-interface InputProps {
-  label: string;
-  value: string | number;
-  updateValue(value: any): void;
-}
-
-const Input = ({ label, value, updateValue }: InputProps) => (
-  <input
-    value={value}
-    onChange={(e) => updateValue(e.target.value)}
-    placeholder={label}
-  />
-);
 
 export function Register() {
   const [nome, setNome] = useState("");
