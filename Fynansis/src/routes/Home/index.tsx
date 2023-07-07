@@ -1,22 +1,29 @@
 import { useState } from "react";
 import { Link } from "react-router-dom"
-import { useLoginDataMutate } from "../hooks/useLoginDataMutate";
 import { Input } from "../../components/input";
 import { LoginData } from "../../interface/loginData";
 import './styles.css'
+import axios from "axios";
 
+const API_URL = "http://localhost:8080/usuario";
 
 export function Home() {
   const [login, setLogin] = useState("");
   const [senha, setSenha] = useState("");
-  const { mutate } = useLoginDataMutate();
 
-  const submit = () => {
+  const submit = async () => {
     const loginData: LoginData = {
       login,
       senha
     };
-    mutate(loginData);
+
+    try {
+      await axios.post(API_URL + "/login", loginData)
+      alert("Login feito!")      
+    } catch (error: any) {
+      alert("Credenciais incorretas!")
+    }
+
   };
 
   return (
