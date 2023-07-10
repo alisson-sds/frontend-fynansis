@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../Home/styles.css";
+import "../Login/styles.css";
 import { Link } from "react-router-dom";
 import { useUserDataMutate } from "../hooks/useUserDataMutate";
 import { UserData } from "../../interface/userData";

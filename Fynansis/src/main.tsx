@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { Home } from './routes/Home/index.tsx'
+import { Login } from './routes/Login/index.tsx'
 import { Register } from './routes/Register/index.tsx'
+import { Home } from './routes/Home/index.tsx'
 import './styles/global.css'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
@@ -10,11 +11,15 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home/>
+    element: <Login/>
   },
   {
     path: "register",
     element: <Register />
+  },
+  {
+    path: "home",
+    element: <Home />
   }
 ])
 
