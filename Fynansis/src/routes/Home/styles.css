@@ -1,0 +1,17 @@
+.navBar{
+    background-color: #3700CF;
+    width: 100%;    
+    padding: 1%;
+}
+
+.navBar ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: inherit;
+    list-style: none;
+}
+
+.navBar ul li{
+    background-color: inherit;    
+}

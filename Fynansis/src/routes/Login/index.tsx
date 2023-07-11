@@ -10,6 +10,7 @@ const API_URL = "http://localhost:8080/usuario";
 export function Login() {
   const [login, setLogin] = useState("");
   const [senha, setSenha] = useState("");
+  const [] = useState("");
   const navigate = useNavigate();
 
   const submit = async () => {
@@ -19,9 +20,10 @@ export function Login() {
     };
 
     try {
-      await axios.post(API_URL + "/login", loginData)
+      const response = await axios.post(API_URL + "/login", loginData)
+      localStorage.setItem("token", response.data.codUsuario)
       alert("Login feito!")  
-      navigate("/home")
+      navigate("/home")      
     } catch (error: any) {
       alert("Credenciais incorretas!")
     }
