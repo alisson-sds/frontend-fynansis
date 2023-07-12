@@ -7,6 +7,7 @@ import './styles/global.css'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { Investiment } from './routes/Investiment/index.tsx'
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "home",
     element: <Home />
+  },
+  {
+    path: "investiment",
+    element: <Investiment />
   }
 ])
 

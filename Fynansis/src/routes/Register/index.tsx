@@ -3,7 +3,7 @@ import "../Login/styles.css";
 import { Link } from "react-router-dom";
 import { useUserDataMutate } from "../hooks/useUserDataMutate";
 import { UserData } from "../../interface/userData";
-import { Input } from "../../components/input";
+import { Input } from "../../components/input/input";
 
 
 export function Register() {
