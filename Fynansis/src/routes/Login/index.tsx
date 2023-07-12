@@ -22,6 +22,7 @@ export function Login() {
     try {
       const response = await axios.post(API_URL + "/login", loginData)
       localStorage.setItem("token", response.data.codUsuario)
+      localStorage.setItem("nameFromLoggedUser", response.data.nomeUsuario)
       alert("Login feito!")  
       navigate("/home")      
     } catch (error: any) {
@@ -29,6 +30,15 @@ export function Login() {
     }
 
   };
+ 
+  document.addEventListener("keypress", function(e) {
+    if(e.key === 'Enter') {
+
+      const btn = document.getElementById("loginButton")   
+      btn?.click()
+
+    }
+  });
 
   return (
     <div className='container'>
@@ -36,7 +46,7 @@ export function Login() {
       <h1>Login</h1>
       <Input label="Login" value={login} updateValue={setLogin}/>
       <Input label="Senha" value={senha} updateValue={setSenha}/>
-      <button type="button" onClick={submit}>Entrar</button>
+      <button type="button" onClick={submit} id="loginButton">Entrar</button>
       <Link to="/register">
         <button type="button">
         Cadastrar

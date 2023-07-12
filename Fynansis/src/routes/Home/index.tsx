@@ -1,7 +1,8 @@
 import "./styles.css";
 
 export function Home() {
-  const isAuth = localStorage.getItem("token");
+  const isAuth = localStorage.getItem("token")
+  const nameFromUser = localStorage.getItem("nameFromLoggedUser")
 
   return (
     <div className="container">
@@ -9,7 +10,7 @@ export function Home() {
       <nav className="navBar">
         <ul>
           <li>List</li>
-          <li>Olá Alisson</li>
+          <li>Olá, <script>nameFromUser</script> </li>
           <li></li>                   
         </ul>
       </nav>
