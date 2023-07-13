@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import "../Login/styles.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useUserDataMutate } from "../hooks/useUserDataMutate";
 import { UserData } from "../../interface/userData";
 import { Input } from "../../components/input/input";
-
 
 export function Register() {
   const [nome, setNome] = useState("");
@@ -13,8 +12,11 @@ export function Register() {
   const [senha, setSenha] = useState("");
   const [cpf, setCpf] = useState(0);
   const { mutate } = useUserDataMutate();
+  const navigate = useNavigate();
 
-  const submit = () => {
+  const submit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
     const userData: UserData = {
       nome,
       email,
@@ -23,24 +25,48 @@ export function Register() {
       cpf,
     };
     mutate(userData);
+
+    alert("Usuario cadastrado!");
+    navigate("/");
   };
 
   return (
-    <div className="container">
+    <div>
       <h1>Cadastrar</h1>
+      <form onSubmit={submit} className="container">
+        <Input label="Nome" value={nome} updateValue={setNome} required />
+        <Input
+          label="Email"
+          value={email}
+          updateValue={setEmail}
+          required
+          type="email"
+        />
+        <Input label="Login" value={login} updateValue={setLogin} required />
+        <Input
+          label="Senha"
+          value={senha}
+          updateValue={setSenha}
+          required
+          type="password"
+          minLength={12}
+          maxLength={30}
+        />
+        <Input
+          label="Cpf"
+          value={cpf}
+          updateValue={setCpf}
+          required
+          type="number"
+          minLength={11}
+          maxLength={11}
+        />
 
-      <Input label="Nome" value={nome} updateValue={setNome}/>
-      <Input label="Email" value={email} updateValue={setEmail}/>
-      <Input label="Login" value={login} updateValue={setLogin}/>
-      <Input label="Senha" value={senha} updateValue={setSenha}/>
-      <Input label="Cpf" value={cpf} updateValue={setCpf}/>
-
-      <Link to="/">
-        <button type="button">Voltar</button>
-      </Link>
-      <button type="button" onClick={submit}>
-        Cadastrar
-      </button>
+        <Link to="/">
+          <button type="button">Voltar</button>
+        </Link>
+        <button type="submit">Cadastrar</button>
+      </form>
     </div>
   );
 }

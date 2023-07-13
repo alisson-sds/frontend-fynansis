@@ -10,7 +10,6 @@ const API_URL = "http://localhost:8080/usuario";
 export function Login() {
   const [login, setLogin] = useState("");
   const [senha, setSenha] = useState("");
-  const [] = useState("");
   const navigate = useNavigate();
 
   const submit = async () => {
@@ -30,15 +29,8 @@ export function Login() {
     }
 
   };
- 
-  document.addEventListener("keypress", function(e) {
-    if(e.key === 'Enter') {
 
-      const btn = document.getElementById("loginButton")   
-      btn?.click()
 
-    }
-  });
 
   return (
     <div className='container'>
