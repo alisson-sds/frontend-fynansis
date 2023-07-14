@@ -1,9 +1,11 @@
 import { FormEvent, useState } from "react";
 import "../Login/styles.css";
 import { Link, useNavigate } from "react-router-dom";
-import { useUserDataMutate } from "../hooks/useUserDataMutate";
 import { UserData } from "../../interface/userData";
 import { Input } from "../../components/input/input";
+import axios from "axios";
+
+const API_URL = "http://localhost:8080/usuario";
 
 export function Register() {
   const [nome, setNome] = useState("");
@@ -11,7 +13,6 @@ export function Register() {
   const [login, setLogin] = useState("");
   const [senha, setSenha] = useState("");
   const [cpf, setCpf] = useState(0);
-  const { mutate } = useUserDataMutate();
   const navigate = useNavigate();
 
   const submit = (event: FormEvent<HTMLFormElement>) => {
@@ -24,16 +25,19 @@ export function Register() {
       senha,
       cpf,
     };
-    mutate(userData);
-
-    alert("Usuario cadastrado!");
-    navigate("/");
+    try {
+      const response = axios.post(API_URL + "/criar", userData);
+      alert("Usuario cadastrado!");
+      navigate("/");
+    } catch (error: any) {
+      alert("Cpf ou email já cadastrados!");
+    }
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>Cadastrar</h1>
-      <form onSubmit={submit} className="container">
+      <form onSubmit={submit} className="form">
         <Input label="Nome" value={nome} updateValue={setNome} required />
         <Input
           label="Email"
@@ -42,7 +46,14 @@ export function Register() {
           required
           type="email"
         />
-        <Input label="Login" value={login} updateValue={setLogin} required />
+        <Input
+          label="Login"
+          value={login}
+          updateValue={setLogin}
+          required
+          minLength={5}
+          maxLength={20}
+        />
         <Input
           label="Senha"
           value={senha}

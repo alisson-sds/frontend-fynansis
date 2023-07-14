@@ -2,7 +2,6 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-
     min-width: 50%;
 }
 
@@ -12,7 +11,15 @@
     color: #ffffff;
 }
 
-.container input{
+.form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-width: 100%;
+}
+
+
+.form input{
     min-width: 25%;
     padding: 12px;    
     background: #000a41;        
@@ -24,11 +31,11 @@
     color: #d6d6d6;      
 }
 
-.container input::placeholder{
+.form input::placeholder{
     color: #d6d6d6;
 }
 
-.container button{    
+.form button{    
     width: 140px;        
     padding: 8px;
     background: #000a41;
@@ -45,11 +52,11 @@
     transition: filter 0.2s;
 }
 
-.container button:hover{
+.form button:hover{
     filter: brightness(0.9);
 }
 
-.container button a{
+.form button a{
     color: currentColor;
     background: inherit;
     text-decoration: none;

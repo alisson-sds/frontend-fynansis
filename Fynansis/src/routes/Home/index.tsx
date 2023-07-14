@@ -1,4 +1,4 @@
-import Navbar from "../../components/navbar/navbar";
+import NavBar from "../../components/navbar/navbar";
 
 export function Home() {
   const isAuth = localStorage.getItem("token")
@@ -6,7 +6,7 @@ export function Home() {
 
   return (
     <div className="container">
-      <Navbar />
+      <NavBar userName={nameFromUser} />
       <h1>home</h1>
     </div>
   );
