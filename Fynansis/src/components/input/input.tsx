@@ -8,6 +8,7 @@ interface InputProps {
   type?: HTMLInputTypeAttribute
   minLength?: number
   maxLength?: number
+  disabled?: boolean;
 }
 
 export const Input = ({
@@ -17,6 +18,7 @@ export const Input = ({
   type = "text",
   minLength,
   maxLength,
+  disabled,
   updateValue,
 }: InputProps) => (
   <input
@@ -27,5 +29,6 @@ export const Input = ({
     type={type}
     minLength={minLength}
     maxLength={maxLength}
+    disabled={disabled}
   />
 );

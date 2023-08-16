@@ -15,8 +15,9 @@ export default function NavBar({ userName }: NavBarProps) {
 
         <h3>Olá, {userName}</h3>   
         
-        <Link to="/profile"  className="nav-link">
-          <i className="fa-regular fa-user"></i>         
+        <Link to="/profile"  className="nav-link"> 
+          <i className="fa-regular fa-user"></i>        
+           
         </Link>
       </div>
     </nav>
