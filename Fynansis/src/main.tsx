@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom/client'
 import { Login } from './routes/Login/index.tsx'
 import { Register } from './routes/Register/index.tsx'
 import { Home } from './routes/Home/index.tsx'
+import { Investiment } from './routes/Investiment/index.tsx'
+
 import './styles/global.css'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from 'react-query'
-import { Investiment } from './routes/Investiment/index.tsx'
+import { Profile } from './routes/Profile/index.tsx'
+
 
 const router = createBrowserRouter([
   {
@@ -25,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "investiment",
     element: <Investiment />
+  },
+  {
+    path: "profile",
+    element: <Profile />
   }
 ])
 

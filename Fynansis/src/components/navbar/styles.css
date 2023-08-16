@@ -5,7 +5,7 @@
     color: #ffffff;
 }
 
-.navBar ul{
+.navBar div{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -13,6 +13,16 @@
     list-style: none;
 }
 
-.navBar ul li{
+.navBar h3{
     background-color: inherit;    
+}
+
+.navBar i{
+    background-color: inherit;  
+    color: #ffffff;  
+    width: 2%;
+}
+
+.nav-link {
+    background-color: inherit; 
 }
