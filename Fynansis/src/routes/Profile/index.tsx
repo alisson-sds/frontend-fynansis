@@ -8,8 +8,10 @@ import axios from "axios";
 const API_URL = "http://localhost:8080/usuario";
 
 export function Profile() {
-  const isAuth = localStorage.getItem("token")
-  const nameFromUser = localStorage.getItem("nameFromLoggedUser")
+  const isAuth = localStorage.getItem("token");
+  const nameFromUser = localStorage.getItem("nameFromLoggedUser");
+
+  const [disabled, setDisabled] = useState<boolean>(true);
 
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
@@ -38,18 +40,24 @@ export function Profile() {
   };
 
   return (
-    <div className="container">    
-      <Navbar userName={nameFromUser} />    
-      
-      <form onSubmit={submit} className="form">
-        <Input label="Nome" value={nome} updateValue={setNome} required  disabled={true}/>
+    <div className="container">
+      <Navbar userName={nameFromUser} />
+      {/* onSubmit={submit} */}
+      <form className="form">
+        <Input
+          label="Nome"
+          value={nome}
+          updateValue={setNome}
+          required
+          disabled={disabled}
+        />
         <Input
           label="Email"
           value={email}
           updateValue={setEmail}
           required
           type="email"
-          disabled={true}
+          disabled={disabled}
         />
         <Input
           label="Login"
@@ -58,7 +66,7 @@ export function Profile() {
           required
           minLength={5}
           maxLength={20}
-          disabled={true}
+          disabled={disabled}
         />
         <Input
           label="Senha"
@@ -68,7 +76,7 @@ export function Profile() {
           type="password"
           minLength={12}
           maxLength={30}
-          disabled={true}
+          disabled={disabled}
         />
         <Input
           label="Cpf"
@@ -78,17 +86,17 @@ export function Profile() {
           type="number"
           minLength={11}
           maxLength={11}
-          disabled={true}
+          disabled={disabled}
         />
-        
+
         <div>
-          <button>Editar</button>
+          <button onClick={() => setDisabled(!disabled)}>Editar</button>
           <button type="submit">Atualizar</button>
           <Link to="/home">
-          <button type="button">Voltar</button>
+            <button type="button">Voltar</button>
           </Link>
         </div>
-      </form>      
+      </form>
     </div>
   );
 }
