@@ -4,6 +4,7 @@ import Navbar from "../../components/navbar/navbar";
 import { FormEvent, useState } from "react";
 import { UserData } from "../../interface/userData";
 import axios from "axios";
+import { Button } from "../../components/button/button";
 
 const API_URL = "http://localhost:8080/usuario";
 
@@ -19,6 +20,8 @@ export function Profile() {
   const [senha, setSenha] = useState("");
   const [cpf, setCpf] = useState(0);
   const navigate = useNavigate();
+
+  const buttonText = disabled? "Editar" : "Cancelar"; //Define Text do botão partindo do state de Editar
 
   const submit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -90,7 +93,10 @@ export function Profile() {
         />
 
         <div>
-          <button onClick={() => setDisabled(!disabled)}>Editar</button>
+          <Button
+            label={buttonText}
+            onClick={() => setDisabled(!disabled)}
+          />
           <button type="submit">Atualizar</button>
           <Link to="/home">
             <button type="button">Voltar</button>
