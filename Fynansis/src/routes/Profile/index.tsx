@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Input } from "../../components/input/input";
 import Navbar from "../../components/navbar/navbar";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { UserData } from "../../interface/userData";
 import axios from "axios";
 import { Button } from "../../components/button/button";
@@ -21,7 +21,15 @@ export function Profile() {
   const [cpf, setCpf] = useState(0);
   const navigate = useNavigate();
 
-  const buttonText = disabled? "Editar" : "Cancelar"; //Define Text do botão partindo do state de Editar
+  const buttonText = disabled ? "Editar" : "Cancelar"; //Define Text do botão partindo do state de Editar
+
+  const buttonColor = disabled ? "#000a41" : "#891900";
+
+  const getData = () => {
+    useEffect(() => {
+      
+    });
+  }
 
   const submit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -95,6 +103,7 @@ export function Profile() {
         <div>
           <Button
             label={buttonText}
+            color={buttonColor}
             onClick={() => setDisabled(!disabled)}
           />
           <button type="submit">Atualizar</button>
