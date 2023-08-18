@@ -25,11 +25,14 @@ export function Profile() {
 
   const buttonColor = disabled ? "#000a41" : "#891900";
 
-  const getData = () => {
-    alert("a")
+  const getData = async () => {
     try {
-      const response = axios.get(API_URL + "/ler/" + isAuth);
-      alert(response);
+      const response = await axios.get(API_URL + "/ler/" + isAuth);      
+      setNome(response.data.nomeUsuario);
+      setEmail(response.data.emailUsuario);
+      setLogin(response.data.loginUsuario);
+      setSenha(response.data.senhaUsuario);
+      setCpf(response.data.cpfUsuario);
     } catch (error: any) {
       alert("Erro ao buscar dados do usuário!");
     }
@@ -39,7 +42,7 @@ export function Profile() {
     getData();
   }, []);
 
-  const submit = (event: FormEvent<HTMLFormElement>) => {
+  const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     event.stopPropagation();
     const userData: UserData = {
@@ -50,19 +53,21 @@ export function Profile() {
       cpf,
     };
     try {
-      const response = axios.post(API_URL + "/atualizar", userData);
-      alert("Usuario cadastrado!");
-      navigate("/");
+      const response = await axios.put(API_URL + "/atualizar/" + isAuth, userData);
+      console.log(response)
+      getData();
+      alert("Usuario atualizado!");
     } catch (error: any) {
       alert("Cpf ou email já cadastrados!");
     }
+    setDisabled(!disabled)
   };
 
   return (
     <div className="container">
       <Navbar userName={nameFromUser} />
-      {/* onSubmit={submit} */}
-      <form className="form">
+      
+      <form className="form" onSubmit={submit}>
         <Input
           label="Nome"
           value={nome}

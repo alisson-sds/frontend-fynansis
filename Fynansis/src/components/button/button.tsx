@@ -14,6 +14,7 @@ export const Button = ({
   <button
     onClick={onClick}
     style={{backgroundColor:color ?? "initial"}}    
+    type="button"
   >
     {label}
   </button>
