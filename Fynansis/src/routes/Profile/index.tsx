@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Input } from "../../components/input/input";
 import Navbar from "../../components/navbar/navbar";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, ReactEventHandler, useEffect, useState } from "react";
 import { UserData } from "../../interface/userData";
 import axios from "axios";
 import { Button } from "../../components/button/button";
@@ -26,10 +26,18 @@ export function Profile() {
   const buttonColor = disabled ? "#000a41" : "#891900";
 
   const getData = () => {
-    useEffect(() => {
-      
-    });
-  }
+    alert("a")
+    try {
+      const response = axios.get(API_URL + "/ler/" + isAuth);
+      alert(response);
+    } catch (error: any) {
+      alert("Erro ao buscar dados do usuário!");
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   const submit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
