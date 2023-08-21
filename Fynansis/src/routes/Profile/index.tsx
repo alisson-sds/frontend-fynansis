@@ -58,8 +58,7 @@ export function Profile() {
       const response = await axios.put(
         API_URL + "/atualizar/" + isAuth,
         userData
-      );
-      console.log(response);
+      );      
       getData();
       localStorage.setItem("nameFromLoggedUser", response.data.nomeUsuario);
       alert("Usuario atualizado!");
@@ -71,7 +70,7 @@ export function Profile() {
 
   return (
     <div className="profileContainer">
-      <Navbar userName={nameFromUser} navHome={false} />
+      <Navbar userName={nameFromUser} />
 
       <form className="form" onSubmit={submit}>
         <div className="inputLock">

@@ -6,11 +6,11 @@ interface NavBarProps {
   navHome?: boolean | null;
 }
 
-export default function NavBar({ userName, navHome}: NavBarProps) {
+export default function NavBar({ userName, navHome = false}: NavBarProps) {
   return (
     <nav className="navBar">
       <div>
-        {{ navHome } ? (
+        { navHome ? (
           <Link to="/investiment" className="nav-link-button">
             <button>Investir</button>
           </Link>

@@ -6,7 +6,7 @@ export function Home() {
 
   return (
     <div className="container">
-      <NavBar userName={nameFromUser} />
+      <NavBar userName={nameFromUser} navHome/>
       <h1>home</h1>
     </div>
   );
