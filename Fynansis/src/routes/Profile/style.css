@@ -1,0 +1,11 @@
+.inputLock {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.inputLock i{
+    color: #d6d6d6;
+}
