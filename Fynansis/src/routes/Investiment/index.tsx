@@ -6,7 +6,7 @@ export function Investiment() {
 
   return (
     <div>    
-      <Navbar />    
+      <Navbar userName={nameFromUser} />    
       <h1>Investiments</h1>
     </div>
   );

@@ -1,3 +1,14 @@
+.profileContainer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-width: 50%;    
+}
+
+.profileContainer form{
+    margin-top: 5%;
+}
+
 .inputLock {
     width: 100%;
     display: flex;

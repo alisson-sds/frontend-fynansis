@@ -27,3 +27,14 @@
 .nav-link {
     background-color: inherit; 
 }
+
+.nav-link-button{
+    background-color: inherit;    
+}
+
+.navBar button{
+    background-color: #3700CF;  
+    color: #ffffff;  
+    border-radius: 5px;
+    padding: 5px;
+}
