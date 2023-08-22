@@ -2,7 +2,7 @@ import { HTMLInputTypeAttribute } from "react";
 
 interface InputProps {
   label: string;
-  value: string | number;
+  value?: string | number;
   updateValue(value: any): void;
   required?: boolean;
   type?: HTMLInputTypeAttribute
