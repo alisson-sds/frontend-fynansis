@@ -4,6 +4,7 @@ import axios from "axios";
 import { InvestimentData } from "../../interface/investimentData";
 import { Input } from "../../components/input/input";
 import { Link } from "react-router-dom";
+import "./styles.css";
 
 const API_URL = "http://localhost:8080/investimento";
 
@@ -19,7 +20,7 @@ export function Investiment() {
 
   const getData = async (idInvestiment: string) => {
     try {
-      const response = await axios.get(API_URL + "/ler/" + idInvestiment);      
+      const response = await axios.get(API_URL + "/ler/" + idInvestiment);
       setDescricao(response.data.descricao);
       setSigla(response.data.sigla);
       setTipo(response.data.tipo);
@@ -43,29 +44,35 @@ export function Investiment() {
   };
 
   return (
-    <div>
+    <>
       <Navbar userName={nameFromUser} />
-      <h1>Investiments</h1>
-      <form onSubmit={submit}>
-        <Input label="Descricao" value={descricao} updateValue={setDescricao} />
+      <div className="container">
+        <h1>Investiments</h1>
+        <form onSubmit={submit} className="investimentForm">
+          <Input
+            label="Descricao"
+            value={descricao}
+            updateValue={setDescricao}
+          />
 
-        <Input label="Sigla" value={sigla} updateValue={setSigla} />
+          <Input label="Sigla" value={sigla} updateValue={setSigla} />
 
-        <Input label="Tipo" value={tipo} updateValue={setTipo} />
+          <Input label="Tipo" value={tipo} updateValue={setTipo} />
 
-        <Input
-          label="Instituição"
-          value={instituicao}
-          updateValue={setInstituicao}
-        />
+          <Input
+            label="Instituição"
+            value={instituicao}
+            updateValue={setInstituicao}
+          />
 
-        <div>
-          <button type="submit">Criar</button>
-          <Link to="/home">
-            <button type="button">Voltar</button>
-          </Link>
-        </div>
-      </form>
-    </div>
+          <div>
+            <button type="submit">Criar</button>
+            <Link to="/home">
+              <button type="button">Voltar</button>
+            </Link>
+          </div>
+        </form>
+      </div>
+    </>
   );
 }
