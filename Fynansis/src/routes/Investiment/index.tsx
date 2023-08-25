@@ -16,7 +16,6 @@ export function Investiment() {
 
   const isAuth = localStorage.getItem("token");
   const nameFromUser = localStorage.getItem("nameFromLoggedUser");
-  const idInvest = "";
 
   const getData = async (idInvestiment: string) => {
     try {
@@ -31,7 +30,7 @@ export function Investiment() {
   };
 
   useEffect(() => {
-    getData("cad9f062-5820-4790-a0a9-aa63545277ee");
+    // getData("cad9f062-5820-4790-a0a9-aa63545277ee");
   }, []);
 
   const submit = async (event: FormEvent<HTMLFormElement>) => {
@@ -41,6 +40,15 @@ export function Investiment() {
       tipo,
       instituicao,
     };
+    try {
+      const response = await axios.post(
+        API_URL + "/criar/" + isAuth,
+        investimentData
+      );
+      alert("Investimento criado!");
+    } catch (error: any) {
+      alert("Erro ao criar investimento!");
+    }
   };
 
   return (
