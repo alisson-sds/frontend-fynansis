@@ -30,5 +30,5 @@ export const Input = ({
     minLength={minLength}
     maxLength={maxLength}
     disabled={disabled}
-  />
+  /> 
 );

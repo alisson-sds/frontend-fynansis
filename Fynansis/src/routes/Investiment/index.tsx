@@ -29,6 +29,29 @@ export function Investiment() {
     }
   };
 
+  const options = [
+    {label: "Poupança", value: "Poupança"},
+    {label: "CDB", value: "CDB"},
+    {label: "Tesouro Direto", value: "Tesouro Direto"},
+    {label: "Ações", value: "Ações"},
+    {label: "Fundos de Investimento", value: "Fundos de Investimento"},
+    {label: "Fundos Imobiliários", value: "Fundos Imobiliários"},
+    {label: "Títulos Privados", value: "Títulos Privados"},
+    {label: "Mercado de Câmbio (Forex)", value: "Forex"},
+    {label: "Mercado de Commodities", value: "Mercado de Commodities"},
+    {label: "Bitcoin e Criptomoedas", value: "Bitcoin e Criptomoedas"},
+    {label: "Previdência Privada", value: "Previdência Privada"},
+    {label: "LCI", value: "LCI"},
+    {label: "LCA", value: "LCA"},
+    {label: "Debêntures", value: "Debêntures"},
+    {label: "Fundos Multimercado", value: "Fundos Multimercado"},
+    {label: "Fundos de Renda Fixa", value: "Fundos de Renda Fixa"},
+    {label: "Fundos de Ações", value: "Fundos de Ações"},
+    {label: "Fundos de Previdência", value: "Fundos de Previdência"},
+    {label: "CRA", value: "CRA"},
+    {label: "CRI", value: "CRI"}
+]
+
   useEffect(() => {
     // getData("cad9f062-5820-4790-a0a9-aa63545277ee");
   }, []);
@@ -65,7 +88,11 @@ export function Investiment() {
 
           <Input label="Sigla" value={sigla} updateValue={setSigla} />
 
-          <Input label="Tipo" value={tipo} updateValue={setTipo} />
+          <select value={tipo} onChange={(e) => setTipo(e.target.value)}>
+            {options.map(({value, label}) => (
+              <option value={value}>{label}</option>
+            ))}
+          </select>
 
           <Input
             label="Instituição"
