@@ -30,7 +30,7 @@ export function Home() {
     <div className="container">
       <NavBar userName={nameFromUser} navHome/>
       <h1>home</h1>
-      <InvestimentCard sigla="CDB" descricao="CDB" instituicao="XP Investimentos"/>
+      <InvestimentCard sigla="CDB" descricao="CDB Banco do Brasil" instituicao="XP Investimentos"/>
     </div>
   );
 }

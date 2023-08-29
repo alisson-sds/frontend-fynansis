@@ -1,3 +1,18 @@
 .investimentCard{
-    border: 1px solid red;
+    border-radius: 6px;
+    background-color: #ffffff;
+    padding: 10px;
+    width: 200px;
+}
+
+.investimentCard h2, p{
+    background-color: inherit;
+    margin-bottom: 5px;
+    max-width: 100%;
+}
+
+.investimentCard button{
+    background-color: inherit;
+    margin-bottom: 5px;
+    max-width: 100%;
 }

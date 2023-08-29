@@ -10,7 +10,7 @@ export const InvestimentCard = ({ sigla, descricao, instituicao }: InvestimentCa
   <div className="investimentCard">
     <h2>{sigla}</h2>
     <p>{descricao}</p>
-    <h3>{instituicao}</h3>
+    <p>{instituicao}</p>
     <button>Aportes</button>
   </div>
 );
