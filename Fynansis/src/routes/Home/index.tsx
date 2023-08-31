@@ -37,7 +37,7 @@ export function Home() {
       {data.map(investiment => (
         <InvestimentCard
           sigla={investiment.sigla}
-          descricao={investiment.descricao}
+          tipo={investiment.tipo}
           instituicao={investiment.instituicao}
         />
       ))}

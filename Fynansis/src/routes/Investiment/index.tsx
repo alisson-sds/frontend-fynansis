@@ -3,7 +3,7 @@ import Navbar from "../../components/navbar/navbar";
 import axios from "axios";
 import { InvestimentData } from "../../interface/investimentData";
 import { Input } from "../../components/input/input";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./styles.css";
 
 const API_URL = "http://localhost:8080/investimento";
@@ -13,6 +13,8 @@ export function Investiment() {
   const [sigla, setSigla] = useState("");
   const [tipo, setTipo] = useState("");
   const [instituicao, setInstituicao] = useState("");
+
+  const navigate = useNavigate();
 
   const isAuth = localStorage.getItem("token");
   const nameFromUser = localStorage.getItem("nameFromLoggedUser");
@@ -69,6 +71,7 @@ export function Investiment() {
         investimentData
       );
       alert("Investimento criado!");
+      navigate("/home");
     } catch (error: any) {
       alert("Erro ao criar investimento!");
     }

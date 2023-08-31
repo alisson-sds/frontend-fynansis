@@ -2,14 +2,14 @@ import "./styles.css";
 
 interface InvestimentCardProps {
   sigla: string;
-  descricao?: string;
+  tipo: string;
   instituicao: string;
 }
 
-export const InvestimentCard = ({ sigla, descricao, instituicao }: InvestimentCardProps) => (
+export const InvestimentCard = ({ sigla, tipo, instituicao }: InvestimentCardProps) => (
   <div className="investimentCard">
     <h2>{sigla}</h2>
-    <p>{descricao}</p>
+    <p>{tipo}</p>
     <p>{instituicao}</p>
     <button>Aportes</button>
   </div>
