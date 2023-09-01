@@ -18,6 +18,7 @@ export function Investiment() {
 
   const isAuth = localStorage.getItem("token");
   const nameFromUser = localStorage.getItem("nameFromLoggedUser");
+  const selectedInvest = localStorage.getItem("selectedInvest") || "";
 
   const getData = async (idInvestiment: string) => {
     try {
@@ -55,7 +56,11 @@ export function Investiment() {
 ]
 
   useEffect(() => {
-    // getData("cad9f062-5820-4790-a0a9-aa63545277ee");
+    if(selectedInvest !== null && selectedInvest !== ""){
+      getData(selectedInvest);
+    } else{
+      alert("não encontrei")
+    } 
   }, []);
 
   const submit = async (event: FormEvent<HTMLFormElement>) => {

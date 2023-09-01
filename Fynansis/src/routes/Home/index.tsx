@@ -26,19 +26,21 @@ export function Home() {
   };
 
   useEffect(() => {
+    localStorage.setItem("selectedInvest", "");
     getData();
   }, []);
 
   return (
     <div className="container">
       <NavBar userName={nameFromUser} navHome />
-      <h1>home</h1>
+      <h1>Investimentos</h1>
       <div className="modal-container">
       {data.map(investiment => (
         <InvestimentCard
           sigla={investiment.sigla}
           tipo={investiment.tipo}
           instituicao={investiment.instituicao}
+          codInvest={investiment.codInvestimento}
         />
       ))}
       </div>
