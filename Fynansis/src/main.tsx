@@ -30,6 +30,10 @@ const router = createBrowserRouter([
     element: <Investiment />
   },
   {
+    path: "investiment/:investimentId",
+    element: <Investiment />
+  },
+  {
     path: "profile",
     element: <Profile />
   }

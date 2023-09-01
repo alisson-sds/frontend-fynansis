@@ -3,7 +3,7 @@ import Navbar from "../../components/navbar/navbar";
 import axios from "axios";
 import { InvestimentData } from "../../interface/investimentData";
 import { Input } from "../../components/input/input";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "./styles.css";
 
 const API_URL = "http://localhost:8080/investimento";
@@ -16,9 +16,10 @@ export function Investiment() {
 
   const navigate = useNavigate();
 
+  const { investimentId } = useParams();
+
   const isAuth = localStorage.getItem("token");
   const nameFromUser = localStorage.getItem("nameFromLoggedUser");
-  const selectedInvest = localStorage.getItem("selectedInvest") || "";
 
   const getData = async (idInvestiment: string) => {
     try {
@@ -33,37 +34,37 @@ export function Investiment() {
   };
 
   const options = [
-    {label: "Poupança", value: "Poupança"},
-    {label: "CDB", value: "CDB"},
-    {label: "Tesouro Direto", value: "Tesouro Direto"},
-    {label: "Ações", value: "Ações"},
-    {label: "Fundos de Investimento", value: "Fundos de Investimento"},
-    {label: "Fundos Imobiliários", value: "Fundos Imobiliários"},
-    {label: "Títulos Privados", value: "Títulos Privados"},
-    {label: "Mercado de Câmbio (Forex)", value: "Forex"},
-    {label: "Mercado de Commodities", value: "Mercado de Commodities"},
-    {label: "Bitcoin e Criptomoedas", value: "Bitcoin e Criptomoedas"},
-    {label: "Previdência Privada", value: "Previdência Privada"},
-    {label: "LCI", value: "LCI"},
-    {label: "LCA", value: "LCA"},
-    {label: "Debêntures", value: "Debêntures"},
-    {label: "Fundos Multimercado", value: "Fundos Multimercado"},
-    {label: "Fundos de Renda Fixa", value: "Fundos de Renda Fixa"},
-    {label: "Fundos de Ações", value: "Fundos de Ações"},
-    {label: "Fundos de Previdência", value: "Fundos de Previdência"},
-    {label: "CRA", value: "CRA"},
-    {label: "CRI", value: "CRI"}
-]
+    { label: "Poupança", value: "Poupança" },
+    { label: "CDB", value: "CDB" },
+    { label: "Tesouro Direto", value: "Tesouro Direto" },
+    { label: "Ações", value: "Ações" },
+    { label: "Fundos de Investimento", value: "Fundos de Investimento" },
+    { label: "Fundos Imobiliários", value: "Fundos Imobiliários" },
+    { label: "Títulos Privados", value: "Títulos Privados" },
+    { label: "Mercado de Câmbio (Forex)", value: "Forex" },
+    { label: "Mercado de Commodities", value: "Mercado de Commodities" },
+    { label: "Bitcoin e Criptomoedas", value: "Bitcoin e Criptomoedas" },
+    { label: "Previdência Privada", value: "Previdência Privada" },
+    { label: "LCI", value: "LCI" },
+    { label: "LCA", value: "LCA" },
+    { label: "Debêntures", value: "Debêntures" },
+    { label: "Fundos Multimercado", value: "Fundos Multimercado" },
+    { label: "Fundos de Renda Fixa", value: "Fundos de Renda Fixa" },
+    { label: "Fundos de Ações", value: "Fundos de Ações" },
+    { label: "Fundos de Previdência", value: "Fundos de Previdência" },
+    { label: "CRA", value: "CRA" },
+    { label: "CRI", value: "CRI" },
+  ];
 
   useEffect(() => {
-    if(selectedInvest !== null && selectedInvest !== ""){
-      getData(selectedInvest);
-    } else{
-      alert("não encontrei")
-    } 
+    if (investimentId) {
+      getData(investimentId);
+    }
   }, []);
 
   const submit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
     const investimentData: InvestimentData = {
       descricao,
       sigla,
@@ -71,12 +72,16 @@ export function Investiment() {
       instituicao,
     };
     try {
-      const response = await axios.post(
-        API_URL + "/criar/" + isAuth,
-        investimentData
-      );
-      alert("Investimento criado!");
-      navigate("/home");
+      console.log(investimentId)
+      if (investimentId) {
+        await axios.put(API_URL + "/atualizar/" + investimentId, investimentData);
+        alert("Investimento atualizado!");
+        navigate("/home");
+      } else {
+        await axios.post(API_URL + "/criar/" + isAuth, investimentData);
+        alert("Investimento criado!");
+        navigate("/home");
+      }
     } catch (error: any) {
       alert("Erro ao criar investimento!");
     }
@@ -86,7 +91,7 @@ export function Investiment() {
     <>
       <Navbar userName={nameFromUser} />
       <div className="container">
-        <h1>Investiments</h1>
+        <h1>Investimentos</h1>
         <form onSubmit={submit} className="investimentForm">
           <Input
             label="Descricao"
@@ -97,7 +102,7 @@ export function Investiment() {
           <Input label="Sigla" value={sigla} updateValue={setSigla} />
 
           <select value={tipo} onChange={(e) => setTipo(e.target.value)}>
-            {options.map(({value, label}) => (
+            {options.map(({ value, label }) => (
               <option value={value}>{label}</option>
             ))}
           </select>
@@ -109,7 +114,7 @@ export function Investiment() {
           />
 
           <div>
-            <button type="submit">Criar</button>
+            <button type="submit">{investimentId ? "Editar" : "Criar"}</button>
             <Link to="/home">
               <button type="button">Voltar</button>
             </Link>

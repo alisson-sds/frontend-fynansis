@@ -1,26 +1,27 @@
-.investimentCard{
-    border-radius: 6px;
-    background-color: #ffffff;
-    min-width: 200px;
-    padding: 10px; 
-    margin: 5px;
+.investimentCard {
+  border-radius: 6px;
+  background-color: #ffffff;
+  min-width: 200px;
+  padding: 10px;
+  margin: 5px;
 }
 
-.investimentCard h2, p{
-    background-color: inherit;
-    margin-bottom: 5px;
-    max-width: 100%;
+.investimentCard h2,
+p,
+.div-buttons {
+  background-color: inherit;
+  margin-bottom: 5px;
+  max-width: 100%;
 }
 
-.div-buttons{
-    background-color: inherit;
-    margin-bottom: 5px;
-    width: 100%;
+.div-buttons button {
+  width: 40%;
+  background-color: grey;
+  border-radius: 5px;
+  margin-right: 5px;
+  cursor: pointer;
 }
 
-.div-buttons button{
-    width: 40%;
-    background-color: grey;
-    border-radius: 5px;
-    margin-right: 5px;
+.div-buttons a {
+  background-color: inherit;
 }

@@ -8,10 +8,6 @@ interface InvestimentCardProps {
   codInvest: string;
 }
 
-const saveInvest = async (investiment: string) => {
-  localStorage.setItem("selectedInvest", investiment);
-};
-
 export const InvestimentCard = ({
   sigla,
   tipo,
@@ -24,8 +20,8 @@ export const InvestimentCard = ({
     <p>{instituicao}</p>
     <div className="div-buttons">
       <button>Aportes</button>
-      <Link to="/investiment">
-        <button onClick={() => saveInvest(codInvest)}>Editar</button>
+      <Link to={"/investiment/" + codInvest}>
+        <button>Editar</button>
       </Link>
     </div>
   </div>

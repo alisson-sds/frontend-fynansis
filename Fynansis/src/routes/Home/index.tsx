@@ -19,14 +19,12 @@ export function Home() {
         API_URL + "/retornarInvestimentos/" + isAuth
       );
       setData(response.data);
-      console.log(response);
     } catch (error: any) {
       console.log("Investimentos não encontrados")
     }
   };
 
   useEffect(() => {
-    localStorage.setItem("selectedInvest", "");
     getData();
   }, []);
 
