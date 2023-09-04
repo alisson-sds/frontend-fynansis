@@ -31,6 +31,10 @@ export function Home() {
   return (
     <div className="container">
       <NavBar userName={nameFromUser} navHome />
+      <div className="modal">
+        <h1>Selic</h1>
+        <h3>Aportes:</h3>
+      </div>
       <h1>Investimentos</h1>
       <div className="modal-container">
       {data.map(investiment => (

@@ -1,19 +1,13 @@
 import { Link } from "react-router-dom";
 import "./styles.css";
-
-interface InvestimentCardProps {
-  sigla: string;
-  tipo: string;
-  instituicao: string;
-  codInvest: string;
-}
+import { InvestimentData } from "../../interface/investimentData";
 
 export const InvestimentCard = ({
   sigla,
   tipo,
   instituicao,
   codInvest,
-}: InvestimentCardProps) => (
+}: InvestimentData) => (
   <div className="investimentCard">
     <h2>{sigla}</h2>
     <p>{tipo}</p>

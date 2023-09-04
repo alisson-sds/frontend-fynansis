@@ -1,5 +1,5 @@
 export interface InvestimentData {
-  descricao: string;
+  codInvest: string;
   tipo: string;
   sigla: string;
   instituicao: string;
