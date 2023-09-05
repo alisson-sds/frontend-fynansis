@@ -32,27 +32,29 @@ export function Home() {
   }, []);
 
   return (
-    <div className="container">
-      <NavBar userName={nameFromUser} navHome />
-      {selectedInvestiment && (
-        <AporteModal
-          label={"trepa-trepa"}
-          codInvestimento={selectedInvestiment}
-          updateValue={setSelectedInvestiment}
-        />
-      )}
-      <h1>Investimentos</h1>
-      <div className="card-container">
-        {data.map((investiment) => (
-          <InvestimentCard
-            key={investiment.codInvestimento}
-            sigla={investiment.sigla}
-            tipo={investiment.tipo}
-            instituicao={investiment.instituicao}
-            codInvest={investiment.codInvestimento}
+    <div className="overlay">
+      <div className="container">
+        <NavBar userName={nameFromUser} navHome />
+        {selectedInvestiment && (
+          <AporteModal
+            label={"trepa-trepa"}
+            codInvestimento={selectedInvestiment}
             updateValue={setSelectedInvestiment}
           />
-        ))}
+        )}
+        <h1>Investimentos</h1>
+        <div className="card-container">
+          {data.map((investiment) => (
+            <InvestimentCard
+              key={investiment.codInvestimento}
+              sigla={investiment.sigla}
+              tipo={investiment.tipo}
+              instituicao={investiment.instituicao}
+              codInvest={investiment.codInvestimento}
+              updateValue={setSelectedInvestiment}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

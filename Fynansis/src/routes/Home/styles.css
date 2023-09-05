@@ -1,7 +1,28 @@
-.card-container{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 80%;     
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 80%;
 }
 
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-width: 50%;
+}
+
+.container h1 {
+  margin: 150px 0 12px;
+  font-size: 50px;
+  color: #ffffff;
+}
+
+.overlay{    
+  background: rgba(0, 0, 0, 0.671);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
