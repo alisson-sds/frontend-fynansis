@@ -31,16 +31,19 @@ export function Home() {
     getData();
   }, []);
 
-  return (
-    <div className="overlay">
+  return (    
       <div className="container">
-        <NavBar userName={nameFromUser} navHome />
-        {selectedInvestiment && (
+        
+        <NavBar userName={nameFromUser} navHome />        
+        {selectedInvestiment && (    
+          <>
+          <div className="overlay"/>
           <AporteModal
             label={"trepa-trepa"}
             codInvestimento={selectedInvestiment}
             updateValue={setSelectedInvestiment}
           />
+          </>
         )}
         <h1>Investimentos</h1>
         <div className="card-container">
@@ -55,7 +58,7 @@ export function Home() {
             />
           ))}
         </div>
-      </div>
+      
     </div>
   );
 }
