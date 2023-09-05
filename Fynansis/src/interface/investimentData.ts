@@ -3,4 +3,5 @@ export interface InvestimentData {
   tipo: string;
   sigla: string;
   instituicao: string;
+  updateValue: (value: string) => void;
 }

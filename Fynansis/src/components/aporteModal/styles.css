@@ -1,0 +1,19 @@
+.modal{
+    /* visibility: hidden;  */
+    background: white;
+    position: absolute;
+    width: 50%;
+    height: 80%;
+    margin-top: 75px;
+    border-radius: 10px;
+    border: none;
+}
+
+.modal h1, .modal h3{
+    color: black;
+    background-color: inherit;
+}
+
+dialog::backdrop{
+    background-color: blue;
+}

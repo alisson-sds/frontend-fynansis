@@ -4,11 +4,14 @@ import { useEffect, useState } from "react";
 import { InvestimentCard } from "../../components/investimentCard/investimentCard";
 
 import "./styles.css";
+import { AporteModal } from "../../components/aporteModal/aporteModal";
 
 const API_URL = "http://localhost:8080/investimento";
 
 export function Home() {
   const [data, setData] = useState<any[]>([]);
+
+  const [selectedInvestiment, setSelectedInvestiment] = useState("");
 
   const isAuth = localStorage.getItem("token");
   const nameFromUser = localStorage.getItem("nameFromLoggedUser");
@@ -20,7 +23,7 @@ export function Home() {
       );
       setData(response.data);
     } catch (error: any) {
-      console.log("Investimentos não encontrados")
+      console.log("Investimentos não encontrados");
     }
   };
 
@@ -31,20 +34,25 @@ export function Home() {
   return (
     <div className="container">
       <NavBar userName={nameFromUser} navHome />
-      <div className="modal">
-        <h1>Selic</h1>
-        <h3>Aportes:</h3>
-      </div>
-      <h1>Investimentos</h1>
-      <div className="modal-container">
-      {data.map(investiment => (
-        <InvestimentCard
-          sigla={investiment.sigla}
-          tipo={investiment.tipo}
-          instituicao={investiment.instituicao}
-          codInvest={investiment.codInvestimento}
+      {selectedInvestiment && (
+        <AporteModal
+          label={"trepa-trepa"}
+          codInvestimento={selectedInvestiment}
+          updateValue={setSelectedInvestiment}
         />
-      ))}
+      )}
+      <h1>Investimentos</h1>
+      <div className="card-container">
+        {data.map((investiment) => (
+          <InvestimentCard
+            key={investiment.codInvestimento}
+            sigla={investiment.sigla}
+            tipo={investiment.tipo}
+            instituicao={investiment.instituicao}
+            codInvest={investiment.codInvestimento}
+            updateValue={setSelectedInvestiment}
+          />
+        ))}
       </div>
     </div>
   );

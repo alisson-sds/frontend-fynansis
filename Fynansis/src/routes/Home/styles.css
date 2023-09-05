@@ -1,21 +1,7 @@
-.modal-container{
+.card-container{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     width: 80%;     
 }
 
-.modal{
-    visibility: hidden; 
-    background: white;
-    position: absolute;
-    width: 50%;
-    height: 80%;
-    margin-top: 75px;
-    border-radius: 10px;
-}
-
-.modal h1, .modal h3{
-    color: black;
-    background-color: inherit;
-}
