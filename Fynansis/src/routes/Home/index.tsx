@@ -37,7 +37,7 @@ export function Home() {
         <NavBar userName={nameFromUser} navHome />        
         {selectedInvestiment && (    
           <>
-          <div className="overlay"/>
+          <div className="overlay" onClick={() => setSelectedInvestiment("")}/>
           <AporteModal
             label={"trepa-trepa"}
             codInvestimento={selectedInvestiment}
