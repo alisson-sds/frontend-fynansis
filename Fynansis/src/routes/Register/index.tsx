@@ -35,9 +35,9 @@ export function Register() {
   };
 
   return (
-    <div className="container">
+    <div className="login-container">
       <h1>Cadastrar</h1>
-      <form onSubmit={submit} className="form">
+      <form onSubmit={submit} className="login-form">
         <Input label="Nome" value={nome} updateValue={setNome} required />
         <Input
           label="Email"

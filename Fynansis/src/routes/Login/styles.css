@@ -1,17 +1,17 @@
-.container{
+.login-container{
     display: flex;
     align-items: center;
     flex-direction: column;
     min-width: 50%;
 }
 
-.container h1{
-    margin: 150px 0 12px; 
+.login-container h1{
+    margin: 100px 0 12px; 
     font-size: 50px;   
-    color: #ffffff;
+    color: #00fd8f;
 }
 
-.form{
+.login-form{
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -19,44 +19,46 @@
 }
 
 
-.form input{
+.login-form input{
     min-width: 25%;
     padding: 12px;    
-    background: #000a41;        
+    background: #02231c;        
     margin: 8px 8px;
 
     border: none;
 
     font-size: 16px;      
-    color: #d6d6d6;      
+    color: #f2f2ec;    
+    
+    outline: none;
 }
 
-.form input::placeholder{
-    color: #d6d6d6;
+.login-form input::placeholder{
+    color: #f2f2ec;
 }
 
-.form button{    
+.login-form button{    
     width: 140px;        
     padding: 8px;
-    background: #000a41;
-    background-color: #000a41;
+    background: #00fd8f;
+    background-color: #00fd8f;
     font-size: 16px;
     font-weight: 700;
-    color: #d6d6d6;
+    color: #02231c;
     
     border-radius: 5px;
     margin: 8px;
-    border: 1px solid #d6d6d6;
+    border: 1px solid #02231c;
 
     cursor: pointer;
     transition: filter 0.2s;
 }
 
-.form button:hover{
-    filter: brightness(0.9);
+.login-form button:hover{
+    filter: brightness(1);
 }
 
-.form button a{
+.login-form button a{
     color: currentColor;
     background: inherit;
     text-decoration: none;

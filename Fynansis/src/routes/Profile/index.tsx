@@ -23,7 +23,7 @@ export function Profile() {
 
   const buttonText = disabled ? "Editar" : "Cancelar"; //Define Text do botão partindo do state de Editar
 
-  const buttonColor = disabled ? "#000a41" : "#891900"; //Define cor do botão de edição de registro
+  const buttonColor = disabled ? "#00fd8f" : "#f2f2ec"; //Define cor do botão de edição de registro
 
   const lockType = disabled ? "fa-solid fa-lock" : "fa-solid fa-lock-open"; //Define ícone de Lock input
 
@@ -72,7 +72,7 @@ export function Profile() {
     <div className="profileContainer">
       <Navbar userName={nameFromUser} />
 
-      <form className="form" onSubmit={submit}>
+      <form className="login-form" onSubmit={submit}>
         <div className="inputLock">
           <Input
             label="Nome"

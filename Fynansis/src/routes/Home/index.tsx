@@ -39,7 +39,6 @@ export function Home() {
           <>
           <div className="overlay" onClick={() => setSelectedInvestiment("")}/>
           <AporteModal
-            label={"trepa-trepa"}
             codInvestimento={selectedInvestiment}
             updateValue={setSelectedInvestiment}
           />

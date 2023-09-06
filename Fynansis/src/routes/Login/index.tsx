@@ -32,9 +32,9 @@ export function Login() {
   };
 
   return (
-    <div className="container">
+    <div className="login-container">
       <h1>Login</h1>
-      <form onSubmit={submit} className="form">
+      <form onSubmit={submit} className="login-form">
         <Input
           label="Login"
           value={login}

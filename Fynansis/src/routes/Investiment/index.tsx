@@ -1,7 +1,6 @@
 import { FormEvent, useEffect, useState } from "react";
 import Navbar from "../../components/navbar/navbar";
 import axios from "axios";
-import { InvestimentData } from "../../interface/investimentData";
 import { Input } from "../../components/input/input";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "./styles.css";
@@ -13,6 +12,13 @@ export function Investiment() {
   const [sigla, setSigla] = useState("");
   const [tipo, setTipo] = useState("");
   const [instituicao, setInstituicao] = useState("");
+
+  interface InvestimentData {
+    descricao: string;
+    tipo: string;
+    sigla: string;
+    instituicao: string;
+  }
 
   const navigate = useNavigate();
 
