@@ -10,7 +10,7 @@ const API_URL = "http://localhost:8080/investimento";
 export function Investiment() {
   const [descricao, setDescricao] = useState("");
   const [sigla, setSigla] = useState("");
-  const [tipo, setTipo] = useState("");
+  const [tipo, setTipo] = useState("Poupança");
   const [instituicao, setInstituicao] = useState("");
 
   interface InvestimentData {
