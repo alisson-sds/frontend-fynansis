@@ -8,9 +8,14 @@ export const InvestimentCard = ({
   instituicao,
   codInvest,
   updateValue,
+  deleteInvestimentFunc,
 }: InvestimentData) => (
   <div className="investimentCard">
-    <h2>{sigla}</h2>
+    <div className="investimentCard-title">
+      <h2>{sigla}</h2>
+      <button className="fa-solid fa-trash" onClick={() => deleteInvestimentFunc(codInvest)}>
+      </button>
+    </div>
     <p>{tipo}</p>
     <p>{instituicao}</p>
     <div className="div-buttons">
@@ -18,6 +23,6 @@ export const InvestimentCard = ({
       <Link to={"/investiment/" + codInvest}>
         <button>Editar</button>
       </Link>
-    </div>    
+    </div>
   </div>
 );

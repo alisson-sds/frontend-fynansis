@@ -5,6 +5,7 @@ import { InvestimentCard } from "../../components/investimentCard/investimentCar
 
 import "./styles.css";
 import { AporteModal } from "../../components/aporteModal/aporteModal";
+import { DeleteInvestimentModal } from "../../components/deleteInvestimentModal/deleteInvestimentModal";
 
 const API_URL = "http://localhost:8080/investimento";
 
@@ -12,6 +13,8 @@ export function Home() {
   const [data, setData] = useState<any[]>([]);
 
   const [selectedInvestiment, setSelectedInvestiment] = useState("");
+
+  const [deleteInvestiment, setDeleteInvestiment] = useState("");
 
   const isAuth = localStorage.getItem("token");
   const nameFromUser = localStorage.getItem("nameFromLoggedUser");
@@ -44,6 +47,15 @@ export function Home() {
           />
           </>
         )}
+        {deleteInvestiment && (    
+          <>
+          <div className="overlay" onClick={() => setDeleteInvestiment("")}/>
+          <DeleteInvestimentModal
+            codInvestimento={deleteInvestiment}
+            updateValue={setDeleteInvestiment}
+          />
+          </>
+        )}
         <h1>Investimentos</h1>
         <div className="card-container">
           {data.map((investiment) => (
@@ -54,6 +66,7 @@ export function Home() {
               instituicao={investiment.instituicao}
               codInvest={investiment.codInvestimento}
               updateValue={setSelectedInvestiment}
+              deleteInvestimentFunc={setDeleteInvestiment}
             />
           ))}
         </div>

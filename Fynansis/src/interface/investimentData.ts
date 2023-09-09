@@ -4,4 +4,5 @@ export interface InvestimentData {
   sigla: string;
   instituicao: string;
   updateValue: (value: string) => void;
+  deleteInvestimentFunc: (value: string) => void;
 }

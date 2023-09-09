@@ -47,3 +47,7 @@
   cursor: pointer;
   transition: filter 0.2s;
 }
+
+button:hover{
+  background-color: #0dad68;
+}

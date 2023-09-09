@@ -1,0 +1,37 @@
+.modal {
+  background: #02231c;
+  position: absolute; 
+  width: 220px;
+  height: 20%;
+  border-radius: 10px;
+}
+
+.modal h2,
+.modal h3 {
+  color: #f2f2ec;
+  background-color: inherit;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+.div-delete-buttons {
+  background-color: inherit;
+  max-width: 100%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.div-delete-buttons button {
+  min-width: 30%;
+  background-color: #00fd8f;
+  color: #02231c;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px;
+  border: none;
+}
+
+.div-delete-buttons button:hover {
+  background-color: #0dad68;
+}

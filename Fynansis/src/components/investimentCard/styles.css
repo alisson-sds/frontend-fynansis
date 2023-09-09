@@ -28,3 +28,22 @@ p,
 .div-buttons a {
   background-color: inherit;
 }
+
+.investimentCard-title{
+  background-color: inherit;
+  display: flex;
+  justify-content: space-between;
+}
+
+.investimentCard-title button{
+  background-color: #00fd8f;
+  color: #02231c;
+  border: none;
+  width: 20%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover{
+  background-color: #0dad68;
+}
