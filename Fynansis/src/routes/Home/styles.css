@@ -2,14 +2,15 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  width: 80%;
+  width: 80%;  
 }
 
 .container {
   display: flex;
   align-items: center;
   flex-direction: column;
-  min-width: 50%;
+  width: 100%; 
+  border: 1px solid red;
 }
 
 .container h1 {
@@ -25,4 +26,9 @@
   right: 0;
   bottom: 0;
   left: 0;
+}
+
+.container dialog{
+  top: 100px;
+  margin-left: 4%;
 }

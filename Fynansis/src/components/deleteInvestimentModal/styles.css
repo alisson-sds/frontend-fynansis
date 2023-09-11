@@ -1,17 +1,19 @@
 .modal {
   background: #02231c;
-  position: absolute; 
-  width: 220px;
+  width: 230px;
   height: 20%;
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid red;
 }
 
-.modal h2,
-.modal h3 {
+.modal h2 {
   color: #f2f2ec;
   background-color: inherit;
   border-radius: 10px;
-  margin: 20px;
+  text-align: center;
 }
 
 .div-delete-buttons {
@@ -19,7 +21,7 @@
   max-width: 100%;
   border-radius: 10px;
   display: flex;
-  justify-content: center;
+  justify-content: center;  
 }
 
 .div-delete-buttons button {
