@@ -10,7 +10,6 @@
   align-items: center;
   flex-direction: column;
   width: 100%; 
-  border: 1px solid red;
 }
 
 .container h1 {
@@ -19,16 +18,5 @@
   color: #f2f2ec;
 }
 
-.overlay{    
-  background: rgba(0, 0, 0, 0.271);
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
 
-.container dialog{
-  top: 100px;
-  margin-left: 4%;
-}
+

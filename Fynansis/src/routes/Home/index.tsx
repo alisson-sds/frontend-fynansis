@@ -6,6 +6,7 @@ import { InvestimentCard } from "../../components/investimentCard/investimentCar
 import "./styles.css";
 import { AporteModal } from "../../components/aporteModal/aporteModal";
 import { DeleteInvestimentModal } from "../../components/deleteInvestimentModal/deleteInvestimentModal";
+import { Overlay } from "../../components/overlay/overlay";
 
 const API_URL = "http://localhost:8080/investimento";
 
@@ -40,7 +41,7 @@ export function Home() {
         <NavBar userName={nameFromUser} navHome />        
         {selectedInvestiment && (    
           <>
-          <div className="overlay" onClick={() => setSelectedInvestiment("")}/>
+          <Overlay className="overlay" updateValue={setSelectedInvestiment}/>
           <AporteModal
             codInvestimento={selectedInvestiment}
             updateValue={setSelectedInvestiment}
@@ -49,10 +50,11 @@ export function Home() {
         )}
         {deleteInvestiment && (    
           <>
-          <div className="overlay" onClick={() => setDeleteInvestiment("")}/>
+          <Overlay className="overlay" updateValue={setDeleteInvestiment}/>          
           <DeleteInvestimentModal
             codInvestimento={deleteInvestiment}
             updateValue={setDeleteInvestiment}
+            callBack={getData}
           />
           </>
         )}

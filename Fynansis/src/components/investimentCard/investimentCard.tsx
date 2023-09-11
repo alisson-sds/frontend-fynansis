@@ -16,8 +16,8 @@ export const InvestimentCard = ({
       <button className="fa-solid fa-trash" onClick={() => deleteInvestimentFunc(codInvest)}>
       </button>
     </div>
-    <p>{tipo}</p>
-    <p>{instituicao}</p>
+    <p className="tipo-investimentCard">{tipo}</p>
+    <p className="inst-investimentCard">{instituicao}</p>
     <div className="div-buttons">
       <button onClick={() => updateValue(codInvest)}>Aportes</button>
       <Link to={"/investiment/" + codInvest}>
