@@ -1,14 +1,20 @@
-.modal{
-    background: white;
-    position: absolute;
-    width: 30%;
-    height: 60%;
-    margin: 150px 500px;   
-    border-radius: 10px;
-    border: none;
+.aporteModal {
+  position: fixed;
+  background: #02231c;
+  width: 40%;
+  min-width: 250px;
+  height: 40%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 10%;
+  padding: 10px;
 }
 
-.modal h1, .modal h3, .modal button{
-    color: black;
-    background-color: inherit;
+.aporteModal h1,
+.aporteModal h3,
+.aporteModal button {
+  color: #00fd8f;
+  background-color: inherit;
 }

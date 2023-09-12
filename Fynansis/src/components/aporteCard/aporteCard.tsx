@@ -1,12 +1,12 @@
 import "./styles.css";
 import { AportData } from "../../interface/aportData";
 
-export const InvestimentCard = ({
+export const AportCard = ({
   dataCompra,
   valorCompra,
   numCotas,
 }: AportData) => (
-  <div className="investimentCard">
+  <div className="AportCard">
     <h2>{valorCompra * numCotas}</h2>
     <p>{valorCompra}</p>
     <p>{dataCompra}</p>

@@ -1,0 +1,15 @@
+.AportCard {
+    border-radius: 6px;
+    background-color: #02231c;
+    min-width: 200px;
+    padding: 20px;
+    margin: 5px;
+    border: 1px solid #f2f2ec;
+  }
+  
+  .AportCard h2{
+    background-color: inherit;
+    margin-bottom: 5px;
+    max-width: 100%;
+    color: #f2f2ec;
+  }

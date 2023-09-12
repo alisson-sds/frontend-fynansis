@@ -9,9 +9,9 @@ export const AporteModal = ({
   codInvestimento,
   updateValue,
 }: ModalProps) => (
-  <dialog className="modal" open>
-    <h1>Selic</h1>
+  <div className="aporteModal">
+    <h1>Selicc</h1>
     <h3>Aportes:</h3>
     <button onClick={() => updateValue("")}>Voltar</button>
-  </dialog>
+  </div>
 );
