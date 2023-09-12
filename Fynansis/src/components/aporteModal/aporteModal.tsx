@@ -1,19 +1,16 @@
 import { useEffect, useState } from "react";
 import "./styles.css";
 import axios from "axios";
+import { AportCard } from "../aporteCard/aporteCard";
 
 interface ModalProps {
   codInvestimento: string;
   updateValue: (value: string) => void;
 }
 
-const API_URL = "http://localhost:8080/investimento";
+const API_URL = "http://localhost:8080/aporte";
 
-export const AporteModal = ({
-  codInvestimento,
-  updateValue,
-}: ModalProps) => {
-
+export const AporteModal = ({ codInvestimento, updateValue }: ModalProps) => {
   const [data, setData] = useState<any[]>([]);
 
   const getData = async () => {
@@ -25,16 +22,24 @@ export const AporteModal = ({
     } catch (error: any) {
       console.log("Aportes não encontrados");
     }
-  };  
+  };
 
   useEffect(() => {
     getData();
   }, []);
 
-  return(
-  <div className="aporteModal">
-    <h1>Aportes:</h1>
-    <button onClick={() => updateValue("")}>Voltar</button>
-  </div>
-  )
+  return (
+    <div className="aporteModal">
+      <h1>Aportes:</h1>
+      {data.map((aportes) => (
+        <AportCard
+        key={aportes.codAporte}
+          dataCompra={aportes.dataCompra}
+          valorCompra={aportes.valorCompra}
+          numCotas={aportes.numCotas}
+        />
+      ))}
+      <button onClick={() => updateValue("")}>Voltar</button>
+    </div>
+  );
 };
