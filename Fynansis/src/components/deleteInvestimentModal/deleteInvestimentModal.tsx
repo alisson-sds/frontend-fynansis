@@ -14,9 +14,6 @@ export const DeleteInvestimentModal = ({
   updateValue,
   callBack
 }: ModalProps) => {
-
-
-
   const deleteInvestiment = async (idInvestiment: string) => {
     try {
       await axios.delete(API_URL + "/deletar/" + idInvestiment);
@@ -27,7 +24,7 @@ export const DeleteInvestimentModal = ({
     }
   };
   return (
-    <div className="modal">
+    <div className="delete-modal">
       <h2>Deseja excluir?</h2>
       <div className="div-delete-buttons">
         <button onClick={() => deleteInvestiment(codInvestimento)}>
