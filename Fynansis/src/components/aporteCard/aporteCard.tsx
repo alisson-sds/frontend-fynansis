@@ -19,10 +19,10 @@ export const AportCard = ({
 
   return (
   <div className="AportCard">
-    <h2>Valor total: {valorCompra * numCotas}</h2>
-    <p>Valor da compra: {valorCompra}</p>
+    <h2>Total: {valorCompra * numCotas}</h2>
+    <p>Compra: {valorCompra}</p>
     <p>Data: {formatData(dataCompra)}</p>
-    <div className="div-buttons">
+    <div className="div-buttons-aport">
       <button>Editar</button>
       <button>Excluir</button>
     </div>

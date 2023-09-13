@@ -58,7 +58,7 @@ export function Home() {
           />
           </>
         )}
-        <h1>Investimentos</h1>
+        <h1 className="h1-home">Investimentos</h1>
         <div className="card-container">
           {data.map((investiment) => (
             <InvestimentCard

@@ -30,7 +30,7 @@ export const AporteModal = ({ codInvestimento, updateValue }: ModalProps) => {
 
   return (
     <div className="aporteModal">
-      <h1>Aportes:</h1>
+      <h1 className="h1-modal-aporte">Aportes:</h1>
       {data.map((aportes) => (
         <AportCard
         key={aportes.codAporte}
@@ -39,7 +39,7 @@ export const AporteModal = ({ codInvestimento, updateValue }: ModalProps) => {
           numCotas={aportes.numCotas}
         />
       ))}
-      <button onClick={() => updateValue("")}>Voltar</button>
+      <button onClick={() => updateValue("")} className="button-aport-modal">Voltar</button>
     </div>
   );
 };
