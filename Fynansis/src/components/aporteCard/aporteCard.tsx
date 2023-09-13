@@ -5,13 +5,27 @@ export const AportCard = ({
   dataCompra,
   valorCompra,
   numCotas,
-}: AportData) => (
+}: AportData) => {
+
+
+  function formatData(dataCompra: string): string {
+    const date = parseInt(dataCompra, 10);
+
+    const data = new Date(date);
+
+    return data.toLocaleDateString('pt-BR');
+
+  };
+
+  return (
   <div className="AportCard">
-    <h2>{valorCompra * numCotas}</h2>
-    <p>{valorCompra}</p>
-    <p>{dataCompra}</p>
+    <h2>Valor total: {valorCompra * numCotas}</h2>
+    <p>Valor da compra: {valorCompra}</p>
+    <p>Data: {formatData(dataCompra)}</p>
     <div className="div-buttons">
-      <button>Aportes</button>
+      <button>Editar</button>
+      <button>Excluir</button>
     </div>
   </div>
-);
+)}
+;

@@ -1,9 +1,8 @@
 .AportCard {
     border-radius: 6px;
     background-color: #02231c;
-    min-width: 200px;
-    padding: 20px;
-    margin: 5px;
+    width: 90%;
+    padding: 10px;
     border: 1px solid #f2f2ec;
   }
   
