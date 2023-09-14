@@ -1,43 +1,57 @@
 .AportCard {
-    border-radius: 6px;
-    background-color: #02231c;
-    width: 100%;
-    height: 50px;
-    padding: 10px;
-    border: 1px solid #f2f2ec;
-    display: flex;
-    justify-content: center;    
-  }
-  
-  .AportCard h2{
-    background-color: inherit;
-    margin-bottom: 5px;
-    max-width: 100%;
-    font-size: 16px;
-    color: #f2f2ec;
-    margin: 5px;
-  }
+  border-radius: 6px;
+  background-color: #02231c;
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  border: 1px solid #f2f2ec;
+  display: flex;
+  justify-content: center;
+}
 
-  .AportCard p{
-    background-color: inherit;
-    margin: 5px 10px 10px;
-    color: #a3a3a3;
-  }
+.AportCard h2 {
+  background-color: inherit;
+  margin-bottom: 5px;
+  max-width: 100%;
+  font-size: 16px;
+  color: #f2f2ec;
+  margin: 5px;
+}
 
-  .div-buttons-aport{
-    background-color: inherit;
-    margin-left: 15px;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    height: 100%;
-    width: 30%;
-  }
+.AportCard p {
+  background-color: inherit;
+  margin: 5px 10px 10px;
+  color: #a3a3a3;
+}
 
-  .div-buttons-aport button{
-    border-radius: 5px;
-    background-color: #00fd8f;
-    border: none;
-    margin-left: 15px;        
-    height: 100%;
-  }
+.div-buttons-aport {
+  background-color: inherit;
+  margin-left: 15px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  height: 100%;
+  width: 30%;
+}
+
+.div-buttons-aport button {
+  border-radius: 5px;
+  background-color: #00fd8f;
+  border: none;
+  margin-left: 15px;
+  height: 100%;
+  padding: 5px;
+}
+
+.div-buttons-aport i {
+  background-color: #00fd8f;
+  border-radius: 5px;
+  color: #02231c;
+  margin-left: 15px;
+  font-size: 23px;
+  padding: 5px;
+}
+
+.div-buttons-aport i:hover {
+  background-color: #0dad68;
+}
