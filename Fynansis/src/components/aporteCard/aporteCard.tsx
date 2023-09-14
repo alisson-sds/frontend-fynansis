@@ -13,10 +13,10 @@ export const AportCard = ({ dataCompra, valorCompra, numCotas }: AportData) => {
   return (
     <div className="AportCard">
       <h2>R$ {valorCompra * numCotas}</h2>
-      <p>Data: {formatData(dataCompra)}</p>
-      <div className="div-buttons-aport">
+      <p>{formatData(dataCompra)}</p>
+      <div className="div-icons-aport">
         <i className="fa-solid fa-pen"></i>
-        <i className="fa-solid fa-xmark"></i>
+        <i className="fa-solid fa-trash"></i>
         <i className="fa-solid fa-arrow-down"></i>
       </div>
     </div>
