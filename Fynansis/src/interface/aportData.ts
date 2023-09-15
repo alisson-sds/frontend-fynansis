@@ -1,6 +1,6 @@
 export interface AportData {
-    dataCompra: string;
-    valorCompra: number;
-    numCotas: number;
-  }
-  
+  codAport: string;
+  dataCompra: string;
+  valorCompra: number;
+  numCotas: number;
+}
