@@ -52,9 +52,10 @@ export function Home() {
           <>
           <Overlay className="overlay" updateValue={setDeleteInvestiment}/>          
           <DeleteInvestimentModal
-            codInvestimento={deleteInvestiment}
+            codDelete={deleteInvestiment}
             updateValue={setDeleteInvestiment}
             callBack={getData}
+            type={"invest"}
           />
           </>
         )}
