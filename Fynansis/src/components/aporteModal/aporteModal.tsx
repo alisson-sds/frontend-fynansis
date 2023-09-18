@@ -44,17 +44,18 @@ export const AporteModal = ({ codInvestimento, updateValue }: ModalProps) => {
           deleteAporteFunc={setDeleteAporte}
         />
       ))}
-      {deleteAporte && (    
-          <>
-          <Overlay className="overlay" updateValue={setDeleteAporte}/>          
+      {deleteAporte && (
+        <>
+          <Overlay className="overlay" updateValue={setDeleteAporte} />
           <DeleteInvestimentModal
             codDelete={deleteAporte}
             updateValue={setDeleteAporte}
             callBack={getData}
             type={"aporte"}
           />
-          </>
-        )}
+        </>
+      )}
+      <button className="button-aport-modal">Aportar</button>
       <button onClick={() => updateValue("")} className="button-aport-modal">
         Voltar
       </button>

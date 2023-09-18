@@ -4,4 +4,5 @@ export interface AportData {
   valorCompra: number;
   numCotas: number;
   deleteAporteFunc: (value: string) => void;
+  detalheAporte?: boolean;
 }

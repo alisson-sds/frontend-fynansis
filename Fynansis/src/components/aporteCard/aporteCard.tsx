@@ -1,5 +1,7 @@
 import "./styles.css";
 import { AportData } from "../../interface/aportData";
+import { useActionData } from "react-router-dom";
+import { useState } from "react";
 
 export const AportCard = ({
   dataCompra,
@@ -7,14 +9,16 @@ export const AportCard = ({
   numCotas,
   codAport,
   deleteAporteFunc,
+  detalheAporte = false
 }: AportData) => {
   function formatData(dataCompra: string): string {
     const date = parseInt(dataCompra, 10);
 
-    const data = new Date(date);
+    const data = new Date(date);    
 
     return data.toLocaleDateString("pt-BR");
   }
+  const [abreAporte, setAbreAporte] = useState(detalheAporte);
 
   return (
     <div className="AportCard">
@@ -26,8 +30,12 @@ export const AportCard = ({
           className="fa-solid fa-trash"
           onClick={() => deleteAporteFunc(codAport)}
         ></i>
-        <i className="fa-solid fa-arrow-down"></i>
-      </div>
+        <i className="fa-solid fa-arrow-down" onClick={() => setAbreAporte(!abreAporte)}></i>        
+      </div>      
+      {abreAporte? 
+      (<p>aaaaa</p>)
+      :
+      (<p>bbbbb</p>)}      
     </div>
   );
 };

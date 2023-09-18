@@ -13,9 +13,10 @@
   color: #02231c;    
   border-radius: 5px;
   padding: 5px;
-  width: 20%;
-  margin-top: 15px;
+  width: 22%;
+  margin: 15px 10px 0px 0px;
   border: none;
+  cursor: pointer;  
 }
 
 .h1-modal-aporte{  
