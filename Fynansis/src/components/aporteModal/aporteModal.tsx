@@ -34,31 +34,40 @@ export const AporteModal = ({ codInvestimento, updateValue }: ModalProps) => {
 
   return (
     <div className="aporteModal">
-      <h1 className="h1-modal-aporte">Aportes:</h1>
-      {data.map((aportes) => (
-        <AportCard
-          codAport={aportes.codAporte}
-          dataCompra={aportes.dataCompra}
-          valorCompra={aportes.valorCompra}
-          numCotas={aportes.numCotas}
-          deleteAporteFunc={setDeleteAporte}
-        />
-      ))}
-      {deleteAporte && (
-        <>
-          <Overlay className="overlay" updateValue={setDeleteAporte} />
-          <DeleteInvestimentModal
-            codDelete={deleteAporte}
-            updateValue={setDeleteAporte}
-            callBack={getData}
-            type={"aporte"}
+      <div className="modal-header">
+        <h1 className="h1-modal-aporte">Aportes:</h1>
+        <div className="header-buttons">
+          <button className="button-aport-modal">+</button>
+          <button
+            onClick={() => updateValue("")}
+            className="button-aport-modal"
+          >
+            X
+          </button>
+        </div>
+      </div>
+      <div className="aporte-cards">
+        {data.map((aportes) => (
+          <AportCard
+            codAport={aportes.codAporte}
+            dataCompra={aportes.dataCompra}
+            valorCompra={aportes.valorCompra}
+            numCotas={aportes.numCotas}
+            deleteAporteFunc={setDeleteAporte}
           />
-        </>
-      )}
-      <button className="button-aport-modal">Aportar</button>
-      <button onClick={() => updateValue("")} className="button-aport-modal">
-        Voltar
-      </button>
+        ))}
+        {deleteAporte && (
+          <>
+            <Overlay className="overlay" updateValue={setDeleteAporte} />
+            <DeleteInvestimentModal
+              codDelete={deleteAporte}
+              updateValue={setDeleteAporte}
+              callBack={getData}
+              type={"aporte"}
+            />
+          </>
+        )}
+      </div>
     </div>
   );
 };

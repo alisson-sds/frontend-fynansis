@@ -13,29 +13,35 @@
   border-radius: 6px;
   background-color: #02231c;
   width: 100%;
-  height: 150px;
   padding: 10px;
   border: 1px solid #a3a3a3;
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
 .input-aport-card{
   background-color: #02231c;
   color: #f2f2ec;
+  display: flex;  
+  flex-direction: column;
+  gap: 3px;
+  width: 100%;    
 }
 
 .input-aport-card label{
   background-color: #02231c;
   font-size: 16px;
+  width: 125px;    
 }
 
 .input-aport-card input{
-  background-color: #02231c;
-  height: 20px;
+  background-color: #01110e;
   border-radius: 5px;
   border: none;
   color: #f2f2ec;
+  flex: 1;
+  padding: 10px 10px;
 }
 
 .AportCardClosed h2 {
