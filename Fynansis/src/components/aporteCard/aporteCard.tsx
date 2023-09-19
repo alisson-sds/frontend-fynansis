@@ -1,6 +1,5 @@
 import "./styles.css";
 import { AportData } from "../../interface/aportData";
-import { useActionData } from "react-router-dom";
 import { useState } from "react";
 
 export const AportCard = ({
@@ -21,11 +20,25 @@ export const AportCard = ({
   const [abreAporte, setAbreAporte] = useState(detalheAporte);
 
   return (
-    <div className="AportCard">
+    <div className="">
       {abreAporte ? (
-        <>
-          <h2>R$ {valorCompra * numCotas}</h2>
-          <p>{formatData(dataCompra)}</p>
+        <div className="AportCardOpenned">
+          <div className="input-aport-card">
+            <label>Valor total: R$</label>            
+            <input value={valorCompra * numCotas} />
+          </div>
+          <div className="input-aport-card">
+            <label>Valor pago: R$</label>
+            <input value={valorCompra} />
+          </div>
+          <div className="input-aport-card">
+            <label>Cotas: </label>
+            <input value={numCotas} />
+          </div>
+          <div className="input-aport-card">
+            <label>Data compra: </label>
+            <input value={formatData(dataCompra)} />
+          </div>
           <div className="div-icons-aport">
             <i className="fa-solid fa-pen"></i>
             <i
@@ -37,9 +50,9 @@ export const AportCard = ({
               onClick={() => setAbreAporte(!abreAporte)}
             ></i>
           </div>
-        </>
+        </div>
       ) : (
-        <>
+        <div className="AportCardClosed">
           <h2>R$ {valorCompra * numCotas}</h2>
           <p>{formatData(dataCompra)}</p>
           <div className="div-icons-aport">
@@ -53,7 +66,7 @@ export const AportCard = ({
               onClick={() => setAbreAporte(!abreAporte)}
             ></i>
           </div>
-        </>
+        </div>
       )}
     </div>
   );

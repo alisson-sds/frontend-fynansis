@@ -1,4 +1,4 @@
-.AportCard {
+.AportCardClosed {
   border-radius: 6px;
   background-color: #02231c;
   width: 100%;
@@ -13,14 +13,32 @@
   border-radius: 6px;
   background-color: #02231c;
   width: 100%;
-  height: 50px;
+  height: 150px;
   padding: 10px;
   border: 1px solid #a3a3a3;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
 }
 
-.AportCard h2, .AportCardOpenned h2 {
+.input-aport-card{
+  background-color: #02231c;
+  color: #f2f2ec;
+}
+
+.input-aport-card label{
+  background-color: #02231c;
+  font-size: 16px;
+}
+
+.input-aport-card input{
+  background-color: #02231c;
+  height: 20px;
+  border-radius: 5px;
+  border: none;
+  color: #f2f2ec;
+}
+
+.AportCardClosed h2 {
   background-color: inherit;
   margin: 5px 0px 5px;
   max-width: 100%;
@@ -28,7 +46,7 @@
   color: #f2f2ec;
 }
 
-.AportCard p, .AportCardOpenned p {
+.AportCardClosed p {
   background-color: inherit;
   margin: 5px 0px 5px;
   color: #a3a3a3;
