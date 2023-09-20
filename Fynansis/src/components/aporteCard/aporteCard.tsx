@@ -36,10 +36,10 @@ export const AportCard = ({
   return (
     <div className="">
       {abreAporte ? (
-        <div className="AportCardOpenned">
+        <form className="AportCardOpenned">
           <div className="input-aport-card">
             <label>Valor total: R$</label>
-            <input value={valorCompra * numCotas} disabled={isDisable} />
+            <input value={valorCompra * numCotas} disabled={true}/>
           </div>
           <div className="input-aport-card">
             <label>Valor pago: R$</label>
@@ -69,7 +69,7 @@ export const AportCard = ({
             ></i>
             <i className="fa-solid fa-arrow-up" onClick={arrowUpFunc}></i>
           </div>
-        </div>
+        </form>
       ) : (
         <div className="AportCardClosed">
           <h2>R$ {valorCompra * numCotas}</h2>
