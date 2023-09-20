@@ -9,6 +9,7 @@ export const AportCard = ({
   codAport,
   deleteAporteFunc,
   detalheAporte = false,
+  disable = true,
 }: AportData) => {
   function formatData(dataCompra: string): string {
     const date = parseInt(dataCompra, 10);
@@ -17,38 +18,56 @@ export const AportCard = ({
 
     return data.toLocaleDateString("pt-BR");
   }
+
   const [abreAporte, setAbreAporte] = useState(detalheAporte);
+
+  const [isDisable, setIsDisable] = useState(disable);
+
+  function updateFunc() {
+    setAbreAporte(true);
+    setIsDisable(!isDisable);
+  }
+
+  function arrowUpFunc() {
+    setAbreAporte(!abreAporte);
+    setIsDisable(true);
+  }
 
   return (
     <div className="">
       {abreAporte ? (
         <div className="AportCardOpenned">
           <div className="input-aport-card">
-            <label>Valor total: R$</label>            
-            <input value={valorCompra * numCotas} />
+            <label>Valor total: R$</label>
+            <input value={valorCompra * numCotas} disabled={isDisable} />
           </div>
           <div className="input-aport-card">
             <label>Valor pago: R$</label>
-            <input value={valorCompra} />
+            <input value={valorCompra} disabled={isDisable} />
           </div>
           <div className="input-aport-card">
             <label>Cotas: </label>
-            <input value={numCotas} />
+            <input value={numCotas} disabled={isDisable} />
           </div>
           <div className="input-aport-card">
             <label>Data compra: </label>
-            <input value={formatData(dataCompra)} />
+            <input value={formatData(dataCompra)} disabled={isDisable} />
           </div>
           <div className="div-icons-aport">
-            <i className="fa-solid fa-pen"></i>
+            {isDisable? (
+                <i className="fa-solid fa-pen" onClick={updateFunc}></i>
+            ) : (
+              <>
+              <i className="fa-solid fa-check"></i>
+              <i className="fa-solid fa-x" onClick={() => setIsDisable(!isDisable)}></i>
+              </>
+            )}
+            
             <i
               className="fa-solid fa-trash"
               onClick={() => deleteAporteFunc(codAport)}
             ></i>
-            <i
-              className="fa-solid fa-arrow-up"
-              onClick={() => setAbreAporte(!abreAporte)}
-            ></i>
+            <i className="fa-solid fa-arrow-up" onClick={arrowUpFunc}></i>
           </div>
         </div>
       ) : (
@@ -56,7 +75,7 @@ export const AportCard = ({
           <h2>R$ {valorCompra * numCotas}</h2>
           <p>{formatData(dataCompra)}</p>
           <div className="div-icons-aport">
-            <i className="fa-solid fa-pen"></i>
+            <i className="fa-solid fa-pen" onClick={updateFunc}></i>
             <i
               className="fa-solid fa-trash"
               onClick={() => deleteAporteFunc(codAport)}

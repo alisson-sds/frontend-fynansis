@@ -5,4 +5,5 @@ export interface AportData {
   numCotas: number;
   deleteAporteFunc: (value: string) => void;
   detalheAporte?: boolean;
+  disable?: boolean;
 }
