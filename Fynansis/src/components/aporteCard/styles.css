@@ -85,9 +85,8 @@
   background-color: #0dad68;
 }
 
-.check-button{
+#check-button{
   background-color: #02231c;
-  border: 1px solid red;
+  border: none;
   display: block;
-  padding: 10px; 
 }

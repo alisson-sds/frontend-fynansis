@@ -1,6 +1,7 @@
 import "./styles.css";
 import { AportData } from "../../interface/aportData";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
+import axios from "axios";
 
 export const AportCard = ({
   dataCompra,
@@ -19,9 +20,15 @@ export const AportCard = ({
     return data.toLocaleDateString("pt-BR");
   }
 
+  const APORTE_API_URL = "http://localhost:8080/aporte";
+
   const [abreAporte, setAbreAporte] = useState(detalheAporte);
 
   const [isDisable, setIsDisable] = useState(disable);
+
+  const [aporteValorCompra, setAporteValorCompra] = useState(valorCompra);
+  const [aporteNumCotas, setAporteNumCotas] = useState(numCotas);
+  const [aporteDataCompra, setAporteDataCompra] = useState(dataCompra);
 
   function updateFunc() {
     setAbreAporte(true);
@@ -33,34 +40,66 @@ export const AportCard = ({
     setIsDisable(true);
   }
 
+  const submit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
+    const aporteData = {
+      aporteValorCompra,
+      aporteNumCotas,
+      aporteDataCompra,
+    };
+    try {
+      const response = await axios.put(
+        APORTE_API_URL + "/atualizar/" + codAport,
+        aporteData
+      );
+      alert("Aporte atualizado!");
+    } catch (error: any) {
+      alert("Erro ao atualizar o aporte!");
+    }
+    setIsDisable(!isDisable);
+  };
+
   return (
     <div className="">
       {abreAporte ? (
-        <form className="AportCardOpenned">
+        <form className="AportCardOpenned" onSubmit={submit}>
           <div className="input-aport-card">
             <label>Valor total: R$</label>
-            <input value={valorCompra * numCotas} disabled={true} />
+            <input value={aporteValorCompra * aporteNumCotas} disabled={true} />
           </div>
           <div className="input-aport-card">
             <label>Valor pago: R$</label>
-            <input value={valorCompra} disabled={isDisable} />
+            <input
+              value={aporteValorCompra}
+              onChange={() => setAporteValorCompra(aporteValorCompra)}
+              disabled={isDisable}
+            />
           </div>
           <div className="input-aport-card">
             <label>Cotas: </label>
-            <input value={numCotas} disabled={isDisable} />
+            <input
+              value={aporteNumCotas}
+              onChange={() => setAporteNumCotas(aporteNumCotas)}
+              disabled={isDisable}
+            />
           </div>
           <div className="input-aport-card">
             <label>Data compra: </label>
-            <input value={formatData(dataCompra)} disabled={isDisable} />
+            <input
+              value={formatData(aporteDataCompra)}
+              onChange={() => setAporteDataCompra(aporteDataCompra)}
+              disabled={isDisable}
+            />
           </div>
           <div className="div-icons-aport">
             {isDisable ? (
               <i className="fa-solid fa-pen" onClick={updateFunc}></i>
             ) : (
               <>
-                <i className="fa-solid fa-check">
-                  <button type="submit" className="check-button" />
-                </i>
+                <button type="submit" id="check-button">
+                  <i className="fa-solid fa-check" />
+                </button>
                 <i
                   className="fa-solid fa-x"
                   onClick={() => setIsDisable(!isDisable)}
