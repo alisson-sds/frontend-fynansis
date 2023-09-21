@@ -39,7 +39,7 @@ export const AportCard = ({
         <form className="AportCardOpenned">
           <div className="input-aport-card">
             <label>Valor total: R$</label>
-            <input value={valorCompra * numCotas} disabled={true}/>
+            <input value={valorCompra * numCotas} disabled={true} />
           </div>
           <div className="input-aport-card">
             <label>Valor pago: R$</label>
@@ -54,15 +54,20 @@ export const AportCard = ({
             <input value={formatData(dataCompra)} disabled={isDisable} />
           </div>
           <div className="div-icons-aport">
-            {isDisable? (
-                <i className="fa-solid fa-pen" onClick={updateFunc}></i>
+            {isDisable ? (
+              <i className="fa-solid fa-pen" onClick={updateFunc}></i>
             ) : (
               <>
-              <i className="fa-solid fa-check"></i>
-              <i className="fa-solid fa-x" onClick={() => setIsDisable(!isDisable)}></i>
+                <i className="fa-solid fa-check">
+                  <button type="submit" className="check-button" />
+                </i>
+                <i
+                  className="fa-solid fa-x"
+                  onClick={() => setIsDisable(!isDisable)}
+                ></i>
               </>
             )}
-            
+
             <i
               className="fa-solid fa-trash"
               onClick={() => deleteAporteFunc(codAport)}
