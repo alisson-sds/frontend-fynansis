@@ -26,8 +26,9 @@ export const AportCard = ({
 
   const [isDisable, setIsDisable] = useState(disable);
 
-  const [aporteValorCompra, setAporteValorCompra] = useState(valorCompra);
-  const [aporteNumCotas, setAporteNumCotas] = useState(numCotas);
+  const [aporteValorCompra, setAporteValorCompra] =
+    useState<number>(valorCompra);
+  const [aporteNumCotas, setAporteNumCotas] = useState<number>(numCotas);
   const [aporteDataCompra, setAporteDataCompra] = useState(dataCompra);
 
   function updateFunc() {
@@ -44,15 +45,12 @@ export const AportCard = ({
     event.preventDefault();
     event.stopPropagation();
     const aporteData = {
-      aporteValorCompra,
-      aporteNumCotas,
-      aporteDataCompra,
+      valorCompra: aporteValorCompra,
+      numCotas: aporteNumCotas,
+      dataCompra: aporteDataCompra,
     };
     try {
-      const response = await axios.put(
-        APORTE_API_URL + "/atualizar/" + codAport,
-        aporteData
-      );
+      await axios.put(APORTE_API_URL + "/atualizar/" + codAport, aporteData);
       alert("Aporte atualizado!");
     } catch (error: any) {
       alert("Erro ao atualizar o aporte!");
@@ -72,24 +70,26 @@ export const AportCard = ({
             <label>Valor pago: R$</label>
             <input
               value={aporteValorCompra}
-              onChange={() => setAporteValorCompra(aporteValorCompra)}
+              onChange={(e) => setAporteValorCompra(Number(e.target.value))}
               disabled={isDisable}
+              type="number"
             />
           </div>
           <div className="input-aport-card">
             <label>Cotas: </label>
             <input
               value={aporteNumCotas}
-              onChange={() => setAporteNumCotas(aporteNumCotas)}
+              onChange={(e) => setAporteNumCotas(Number(e.target.value))}
               disabled={isDisable}
             />
           </div>
           <div className="input-aport-card">
             <label>Data compra: </label>
             <input
-              value={formatData(aporteDataCompra)}
-              onChange={() => setAporteDataCompra(aporteDataCompra)}
+              value={aporteDataCompra}
+              onChange={(e) => setAporteDataCompra(e.target.value)}
               disabled={isDisable}
+              type="date"
             />
           </div>
           <div className="div-icons-aport">
