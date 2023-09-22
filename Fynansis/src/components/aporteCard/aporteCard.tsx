@@ -12,7 +12,9 @@ export const AportCard = ({
   detalheAporte = false,
   disable = true,
 }: AportData) => {
+
   function formatData(dataCompra: string): string {
+    
     const date = parseInt(dataCompra, 10);
 
     const data = new Date(date);
@@ -86,8 +88,8 @@ export const AportCard = ({
           <div className="input-aport-card">
             <label>Data compra: </label>
             <input
-              value={formatData(aporteDataCompra)}
-              onChange={(e) => setAporteDataCompra(formatData(e.target.value))}
+              value={aporteDataCompra}
+              onChange={(e) => setAporteDataCompra(e.target.value)}
               disabled={isDisable}
               type="date"
             />
@@ -117,7 +119,7 @@ export const AportCard = ({
       ) : (
         <div className="AportCardClosed">
           <h2>R$ {valorCompra * numCotas}</h2>
-          <p>{formatData(dataCompra)}</p>
+          <p>{dataCompra}</p>
           <div className="div-icons-aport">
             <i className="fa-solid fa-pen" onClick={updateFunc}></i>
             <i

@@ -49,7 +49,7 @@ export const AporteModal = ({ codInvestimento, updateValue }: ModalProps) => {
       <div className="aporte-cards">
         {data.map((aportes) => (
           <AportCard
-            key={aportes.codAport}
+            key={aportes.codAporte}
             codAport={aportes.codAporte}
             dataCompra={aportes.dataCompra}
             valorCompra={aportes.valorCompra}
