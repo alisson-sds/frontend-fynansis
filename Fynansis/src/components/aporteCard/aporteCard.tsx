@@ -86,8 +86,8 @@ export const AportCard = ({
           <div className="input-aport-card">
             <label>Data compra: </label>
             <input
-              value={aporteDataCompra}
-              onChange={(e) => setAporteDataCompra(e.target.value)}
+              value={formatData(aporteDataCompra)}
+              onChange={(e) => setAporteDataCompra(formatData(e.target.value))}
               disabled={isDisable}
               type="date"
             />
