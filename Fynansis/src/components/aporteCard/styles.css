@@ -47,6 +47,7 @@
 .AportCardClosed h2 {
   background-color: inherit;
   margin: 5px 0px 5px;
+  width: 90px;
   max-width: 100%;
   font-size: 16px;
   color: #f2f2ec;

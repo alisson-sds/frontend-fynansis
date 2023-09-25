@@ -13,15 +13,6 @@ export const AportCard = ({
   disable = true,
 }: AportData) => {
 
-  function formatData(dataCompra: string): string {
-    
-    const date = parseInt(dataCompra, 10);
-
-    const data = new Date(date);
-
-    return data.toLocaleDateString("pt-BR");
-  }
-
   const APORTE_API_URL = "http://localhost:8080/aporte";
 
   const [abreAporte, setAbreAporte] = useState(detalheAporte);
