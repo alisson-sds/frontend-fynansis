@@ -17,6 +17,8 @@ export const AporteModal = ({ codInvestimento, updateValue }: ModalProps) => {
 
   const [deleteAporte, setDeleteAporte] = useState("");
 
+  const [createAporte, setCreateAporte] = useState<boolean>();
+
   const getData = async () => {
     try {
       const response = await axios.get(
@@ -37,7 +39,12 @@ export const AporteModal = ({ codInvestimento, updateValue }: ModalProps) => {
       <div className="modal-header">
         <h1 className="h1-modal-aporte">Aportes:</h1>
         <div className="header-buttons">
-          <button className="button-aport-modal">+</button>
+          <button
+            className="button-aport-modal"
+            onClick={() => setCreateAporte(!createAporte)}
+          >
+            +
+          </button>
           <button
             onClick={() => updateValue("")}
             className="button-aport-modal"
@@ -47,6 +54,17 @@ export const AporteModal = ({ codInvestimento, updateValue }: ModalProps) => {
         </div>
       </div>
       <div className="aporte-cards">
+      {createAporte && (
+          <AportCard
+            codAport={""}
+            dataCompra={""}
+            valorCompra={0}
+            numCotas={0}
+            deleteAporteFunc={setDeleteAporte}
+            callBack={getData}
+            detalheAporte={true}
+          />
+        )}
         {data.map((aportes) => (
           <AportCard
             key={aportes.codAporte}
@@ -55,8 +73,9 @@ export const AporteModal = ({ codInvestimento, updateValue }: ModalProps) => {
             valorCompra={aportes.valorCompra}
             numCotas={aportes.numCotas}
             deleteAporteFunc={setDeleteAporte}
+            callBack={getData}
           />
-        ))}
+        ))}        
         {deleteAporte && (
           <>
             <Overlay className="overlay" updateValue={setDeleteAporte} />

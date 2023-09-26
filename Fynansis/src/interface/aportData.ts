@@ -6,4 +6,5 @@ export interface AportData {
   deleteAporteFunc: (value: string) => void;
   detalheAporte?: boolean;
   disable?: boolean;
+  callBack: () => any;
 }

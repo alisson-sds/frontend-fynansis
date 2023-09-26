@@ -11,8 +11,8 @@ export const AportCard = ({
   deleteAporteFunc,
   detalheAporte = false,
   disable = true,
+  callBack,
 }: AportData) => {
-
   const APORTE_API_URL = "http://localhost:8080/aporte";
 
   const [abreAporte, setAbreAporte] = useState(detalheAporte);
@@ -42,11 +42,16 @@ export const AportCard = ({
       numCotas: aporteNumCotas,
       dataCompra: aporteDataCompra,
     };
-    try {
-      await axios.put(APORTE_API_URL + "/atualizar/" + codAport, aporteData);
-      alert("Aporte atualizado!");
-    } catch (error: any) {
-      alert("Erro ao atualizar o aporte!");
+    if (codAport != "") {
+      try {
+        await axios.put(APORTE_API_URL + "/atualizar/" + codAport, aporteData);
+        alert("Aporte atualizado!");
+        callBack();
+      } catch (error: any) {
+        alert("Erro ao atualizar o aporte!");
+      }
+    } else {
+      alert("oe");
     }
     setIsDisable(!isDisable);
   };
