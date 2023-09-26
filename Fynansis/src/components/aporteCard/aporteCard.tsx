@@ -12,6 +12,7 @@ export const AportCard = ({
   detalheAporte = false,
   disable = true,
   callBack,
+  codInvest,
 }: AportData) => {
   const APORTE_API_URL = "http://localhost:8080/aporte";
 
@@ -51,7 +52,13 @@ export const AportCard = ({
         alert("Erro ao atualizar o aporte!");
       }
     } else {
-      alert("oe");
+      try {
+        await axios.post(APORTE_API_URL + "/criar/" + codInvest, aporteData);
+        alert("Aporte criado!");
+        callBack();
+      } catch (error: any) {
+        alert("Erro ao criar o aporte!");
+      }
     }
     setIsDisable(!isDisable);
   };

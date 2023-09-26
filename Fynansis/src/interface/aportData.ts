@@ -7,4 +7,5 @@ export interface AportData {
   detalheAporte?: boolean;
   disable?: boolean;
   callBack: () => any;
+  codInvest: string;
 }

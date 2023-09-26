@@ -63,6 +63,7 @@ export const AporteModal = ({ codInvestimento, updateValue }: ModalProps) => {
             deleteAporteFunc={setDeleteAporte}
             callBack={getData}
             detalheAporte={true}
+            codInvest={codInvestimento}
           />
         )}
         {data.map((aportes) => (
@@ -74,6 +75,7 @@ export const AporteModal = ({ codInvestimento, updateValue }: ModalProps) => {
             numCotas={aportes.numCotas}
             deleteAporteFunc={setDeleteAporte}
             callBack={getData}
+            codInvest={codInvestimento}
           />
         ))}        
         {deleteAporte && (
