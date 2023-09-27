@@ -34,6 +34,11 @@ export const AporteModal = ({ codInvestimento, updateValue }: ModalProps) => {
     getData();
   }, []);
 
+  function callBack() {
+    getData();
+    setCreateAporte(!createAporte);
+  }
+
   return (
     <div className="aporteModal">
       <div className="modal-header">
@@ -61,7 +66,7 @@ export const AporteModal = ({ codInvestimento, updateValue }: ModalProps) => {
             valorCompra={0}
             numCotas={0}
             deleteAporteFunc={setDeleteAporte}
-            callBack={getData}
+            callBack={callBack}
             detalheAporte={true}
             codInvest={codInvestimento}
           />
