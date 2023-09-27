@@ -26,7 +26,7 @@ export function Register() {
       cpf,
     };
     try {
-      const response = axios.post(API_URL + "/criar", userData);
+      axios.post(API_URL + "/criar", userData);
       alert("Usuario cadastrado!");
       navigate("/");
     } catch (error: any) {
